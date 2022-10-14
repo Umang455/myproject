@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function AdminLogin() {
     const [inputs, setInputs] = React.useState({});
@@ -36,7 +37,8 @@ export default function AdminLogin() {
                 <label htmlFor="password">Password : </label>
                 <input type="password" name="password" value={inputs.password || ""} onChange={handleChanges} placeholder="Password" required="" />
             </div>
-            <button type="submit" >Submit</button>
+            
+            <button type="submit" ><Link to={"/admin/dashboard"}>Submit</Link></button>
         </form>
         </>
     )
