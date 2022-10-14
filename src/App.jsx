@@ -1,9 +1,11 @@
 import React from "react"
+import ReactDOM from "react-dom"
+import TeacherLogin from "./components/TeacherLogin"
 
 function App() {
   return (
     <>
-    <p className="text-5xl">Hello World</p>
+    <TeacherLogin />
     </>
   )
 }
