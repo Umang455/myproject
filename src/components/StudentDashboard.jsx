@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
+import StudentLogin from "../pages/StudentLogin";
 
 export default function StudentDashboard() {
+    const auth = false;
 
     const [content, setContent] = React.useState([]);
 
@@ -19,12 +21,12 @@ export default function StudentDashboard() {
 
     return (
         <>
-            <h1>Student Dashboard</h1>
-            {content.map((item) => (
+            {auth ? <h1>Student Dashboard</h1> : <StudentLogin />}
+            {/* {content.map((item) => (
                 <div key={item._id}>
                     <h2>{item.username}</h2>
                 </div>
-            ))}
+            ))} */}
 
         </>
     );

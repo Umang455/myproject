@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import AdminDashboard from "../components/AdminDashboard";
+
+
 
 export default function AdminLogin() {
+    const [auth, setAuth] = useState(false);
+    const [id, setId] = useState("");
+
     const [inputs, setInputs] = React.useState({});
 
     const handleChanges = (e) => {
@@ -19,6 +25,10 @@ export default function AdminLogin() {
             .then((res) => {
                 console.log(res);
                 alert(res.data.message);
+                setAuth(res.data.auth);
+                console.log(auth);
+                setId(res.data.id);
+                console.log(id);
             })
             .catch((err) => {
                 console.log(err);
@@ -27,7 +37,7 @@ export default function AdminLogin() {
 
     return (
         <>
-        <form method="POST" onSubmit={handleSubmit}>
+        <form method="POST">
             <h1>Admin login</h1>
             <div>
                 <label htmlFor="username">Username : </label>
@@ -37,9 +47,12 @@ export default function AdminLogin() {
                 <label htmlFor="password">Password : </label>
                 <input type="password" name="password" value={inputs.password || ""} onChange={handleChanges} placeholder="Password" required="" />
             </div>
+            <AdminDashboard id={id} />
             
-            <button type="submit" ><Link to={"/admin/dashboard"}>Submit</Link></button>
+            <button type="submit" onClick={handleSubmit}><Link to={auth ? "/admin/dashboard" : "/admin/login"}>Submit</Link></button>
         </form>
         </>
     )
 }
+
+// export {AdminLogin, id};

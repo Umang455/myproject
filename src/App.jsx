@@ -7,7 +7,6 @@ import StudentLogin from "./pages/StudentLogin"
 import AdminDashboard from "./components/AdminDashboard"
 import TeacherDashboard from "./components/TeacherDashboard"
 import StudentDashboard from "./components/StudentDashboard"
-import AdminNavBar from "./components/AdminNavBar"
 
 export default function App() {
   return (
@@ -17,7 +16,7 @@ export default function App() {
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/teacher/login" element={<TeacherLogin />} />
       <Route path="/student/login" element={<StudentLogin />} />
-      <Route path="/admin/dashboard" element={[<AdminDashboard />, <AdminNavBar/>]} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
       <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
       <Route path="/student/dashboard" element={<StudentDashboard />} />
     </Routes>
