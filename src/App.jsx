@@ -5,19 +5,22 @@ import TeacherLogin from "./pages/TeacherLogin"
 import AdminLogin from "./pages/AdminLogin"
 import StudentLogin from "./pages/StudentLogin"
 import AdminDashboard from "./components/AdminDashboard"
+import TeacherDashboard from "./components/TeacherDashboard"
+import StudentDashboard from "./components/StudentDashboard"
+import AdminNavBar from "./components/AdminNavBar"
 
-function App() {
+export default function App() {
   return (
     <>
-    <HeroSection />
     <Routes>
+      <Route path="/" element={<HeroSection />} />
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/teacher/login" element={<TeacherLogin />} />
       <Route path="/student/login" element={<StudentLogin />} />
-      <Route path="/admin/:id" element={<AdminDashboard />} />
+      <Route path="/admin/dashboard" element={[<AdminDashboard />, <AdminNavBar/>]} />
+      <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+      <Route path="/student/dashboard" element={<StudentDashboard />} />
     </Routes>
     </>
   )
 }
-
-export default App
