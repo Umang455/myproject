@@ -12,9 +12,11 @@ export default function HeroSection() {
                     </p>
                     <form>
                         <div className="mt-6">
+                        <Link to="/admin/login">
                             <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
-                                Login
-                            </button>
+                                LOGIN
+                                </button>
+                        </Link>
                         </div>
                     </form>
                 </div>
@@ -27,9 +29,11 @@ export default function HeroSection() {
                     </p>
                     <form>
                         <div className="mt-6">
-                            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
-                                Login
-                            </button>
+                            <Link to="/teacher/login">
+                                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
+                                LOGIN
+                                </button>
+                            </Link>
                         </div>
                     </form>
                 </div>
@@ -42,9 +46,11 @@ export default function HeroSection() {
                     </p>
                     <form>
                         <div className="mt-6">
-                            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
-                                <Link to="/student/login">Login</Link>
-                            </button>
+                            <Link to="/student/login">
+                                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
+                                LOGIN
+                                </button>
+                            </Link>
                         </div>
                     </form>
                 </div>

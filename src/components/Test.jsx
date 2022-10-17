@@ -5,7 +5,7 @@ import AdminDashboard from "../components/AdminDashboard";
 
 
 
-export default function AdminLogin() {
+export default function Test() {
     const [auth, setAuth] = useState(false);
     const [id, setId] = useState("");
 

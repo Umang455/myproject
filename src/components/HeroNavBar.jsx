@@ -11,21 +11,31 @@ export default function HeroNavBar() {
                         <div className="">
                             <ul className="position">
                                 <div className="flex space-x-6 text-gray-50 items-center">
-                                    <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
-                                        <Link to="/">Home</Link>
-                                    </li>
-                                    <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
-                                    <Link to="/about">About</Link>
-                                    </li>
-                                    <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
-                                    <Link to="/contact">Contact</Link>
-                                    </li>
-                                    <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
-                                    <a href="http://gpmumbai.ac.in/gpmweb/">GPMumbai</a>
-                                    </li>
-                                    <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
-                                    <a href="http://192.169.226.38/~vtplapps/gpm/gpm_w22/index.php">MIS Portal</a>
-                                    </li>
+                                    <Link to="/">
+                                        <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
+                                            HOME
+                                        </li>
+                                    </Link>
+                                    <Link to="/about">
+                                        <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
+                                            ABOUT
+                                        </li>
+                                    </Link>
+                                    <Link to="/contact">
+                                        <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
+                                            CONTACT
+                                        </li>
+                                    </Link>
+                                    <a href="http://gpmumbai.ac.in/gpmweb/" target="_blank">
+                                        <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
+                                            GPMumbai
+                                        </li>
+                                    </a>
+                                    <a href="http://192.169.226.38/~vtplapps/gpm/gpm_w22/index.php" target="_blank">
+                                        <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
+                                            MIS Portal
+                                        </li>
+                                    </a>
                                 </div>
                             </ul>
                         </div>
