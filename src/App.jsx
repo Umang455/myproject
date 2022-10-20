@@ -9,6 +9,8 @@ import Contact from "./pages/Contact"
 import AdminLogin from "./pages/AdminLogin"
 import TeacherLogin from "./pages/TeacherLogin"
 import StudentLogin from "./pages/StudentLogin"
+import AdminNavBar from "./components/AdminNavBar"
+import AdminDashboard from "./components/AdminDashboard"
 
 
 export default function App() {
@@ -21,6 +23,7 @@ export default function App() {
       <Route path="/admin/login" element={[<Head />, <HeroNavBar />, <AdminLogin />]} />
       <Route path="/teacher/login" element={[<Head />, <HeroNavBar />, <TeacherLogin />]} />
       <Route path="/student/login" element={[<Head />, <HeroNavBar />, <StudentLogin />]} />
+      <Route path="/admin/dashboard" element={[<Head />, <AdminNavBar />, <AdminDashboard />]} />
     </Routes>
     {/* <Test /> */}
     </>
