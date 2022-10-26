@@ -9,7 +9,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function TeacherNavBar() {
+export default function StudentNavBar() {
     return (
     <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (
@@ -21,7 +21,7 @@ export default function TeacherNavBar() {
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex flex-shrink-0 items-center">
-                        <NavLink to="/teacher/dashboard">
+                        <NavLink to="/student/dashboard">
                             <AiFillHome size={30} color="#fff"/>
                         </NavLink>
                     </div>
@@ -29,7 +29,7 @@ export default function TeacherNavBar() {
                         <ul className="position">
                             <div className="flex space-x-6">
                                 <li className='block py-2 rounded-md text-base font-medium'>
-                                    <NavLink exact to="/teacher/dashboard" style={({ isActive }) =>({
+                                    <NavLink exact to="/student/dashboard" style={({ isActive }) =>({
                                         borderRadius: isActive ? 4 : 0,
                                         paddingBlock: isActive ? 10 : 0,
                                         paddingLeft: isActive ? 10 : 0,
@@ -40,25 +40,25 @@ export default function TeacherNavBar() {
                                     </NavLink>
                                 </li>
                                 <li className='block py-2 rounded-md text-base font-medium'>
-                                    <NavLink exact to="/teacher/student" style={({ isActive }) =>({
+                                    <NavLink exact to="/student/upload-documents" style={({ isActive }) =>({
                                             borderRadius: isActive ? 4 : 0,
                                             paddingBlock: isActive ? 10 : 0,
                                             paddingLeft: isActive ? 10 : 0,
                                             paddingRight: isActive ? 10 : 0,
                                             color: isActive ? '#ffffff' : '#f3f4f6',
                                             backgroundColor: isActive ? '#111827' : '#1f2937'
-                                        })}>Students
+                                        })}>Upload Documents
                                         </NavLink>
                                 </li>
                                 <li className='block py-2 rounded-md text-base font-medium'>
-                                    <NavLink exact to="/teacher/allocated-students" style={({ isActive }) =>({
+                                    <NavLink exact to="/student/documents" style={({ isActive }) =>({
                                             borderRadius: isActive ? 4 : 0,
                                             paddingBlock: isActive ? 10 : 0,
                                             paddingLeft: isActive ? 10 : 0,
                                             paddingRight: isActive ? 10 : 0,
                                             color: isActive ? '#ffffff' : '#f3f4f6',
                                             backgroundColor: isActive ? '#111827' : '#1f2937'
-                                        })}>Allocated Students
+                                        })}>Documents
                                         </NavLink>
                                 </li>
                             </div>

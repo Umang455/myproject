@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function HeroSection() {
     return (
@@ -12,11 +12,11 @@ export default function HeroSection() {
                     </p>
                     <form>
                         <div className="mt-6">
-                        <Link to="/admin/login">
+                        <NavLink to="/admin/login">
                             <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
                                 LOGIN
                                 </button>
-                        </Link>
+                        </NavLink>
                         </div>
                     </form>
                 </div>
@@ -29,11 +29,11 @@ export default function HeroSection() {
                     </p>
                     <form>
                         <div className="mt-6">
-                            <Link to="/teacher/login">
+                            <NavLink to="/teacher/login">
                                 <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
                                 LOGIN
                                 </button>
-                            </Link>
+                            </NavLink>
                         </div>
                     </form>
                 </div>
@@ -46,11 +46,11 @@ export default function HeroSection() {
                     </p>
                     <form>
                         <div className="mt-6">
-                            <Link to="/student/login">
+                            <NavLink to="/student/login">
                                 <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
                                 LOGIN
                                 </button>
-                            </Link>
+                            </NavLink>
                         </div>
                     </form>
                 </div>

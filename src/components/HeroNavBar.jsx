@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function HeroNavBar() {
     return (
@@ -11,28 +11,34 @@ export default function HeroNavBar() {
                         <div className="">
                             <ul className="position">
                                 <div className="flex space-x-6 text-gray-50 items-center">
-                                    <Link to="/">
-                                        <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
+                                    <NavLink end to="/" style={({isActive}) => ({
+                                        backgroundColor: isActive ? '#1f2937' : '#111827',
+                                    })}>
+                                        <li className='block w-32 py-2 rounded-md font-medium text-center'>
                                             HOME
                                         </li>
-                                    </Link>
-                                    <Link to="/about">
-                                        <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
+                                    </NavLink>
+                                    <NavLink end to="/about" style={({isActive}) => ({
+                                        backgroundColor: isActive ? '#1f2937' : '#111827',
+                                    })}>
+                                        <li className='block w-32 py-2 rounded-md font-medium text-center'>
                                             ABOUT
                                         </li>
-                                    </Link>
-                                    <Link to="/contact">
-                                        <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
+                                    </NavLink>
+                                    <NavLink to="/contact" style={({isActive}) => ({
+                                        backgroundColor: isActive ? '#1f2937' : '#111827',
+                                    })}>
+                                        <li className='block w-32 py-2 rounded-md font-medium text-center'>
                                             CONTACT
                                         </li>
-                                    </Link>
+                                    </NavLink>
                                     <a href="http://gpmumbai.ac.in/gpmweb/" target="_blank">
-                                        <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
+                                        <li className='block w-32 py-2 rounded-md font-medium text-center'>
                                             GPMumbai
                                         </li>
                                     </a>
                                     <a href="http://192.169.226.38/~vtplapps/gpm/gpm_w22/index.php" target="_blank">
-                                        <li className='block w-32 py-2 rounded-md font-medium text-center bg-slate-800'>
+                                        <li className='block w-32 py-2 rounded-md font-medium text-center'>
                                             MIS Portal
                                         </li>
                                     </a>

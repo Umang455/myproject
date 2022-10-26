@@ -1,60 +1,35 @@
-import React from "react";
-import { Menu, Transition } from '@headlessui/react'
-import { NavLink } from "react-router-dom";
+import { Fragment } from 'react'
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { NavLink } from 'react-router-dom';
+import { FaUserAlt } from 'react-icons/fa';
+import { AiFillHome } from 'react-icons/ai';
+
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
 
 export default function AdminNavBar() {
-    const navlinks = [
-        {
-            name: "Add Student",
-            link: "/admin/add-student",
-        },
-        {
-            name: "Delete Student",
-            link: "/admin/delete-student",
-        },
-        {
-            name: "View Students",
-            link: "/admin/students",
-        },
-        {
-            name: "Add Teacher",
-            link: "/admin/add-teacher",
-        },
-        {
-            name: "Delete Teacher",
-            link: "/admin/delete-teacher",
-        },
-        {
-            name: "View Teachers",
-            link: "/admin/teachers",
-        },
-        {
-            name: "Allocate Mentors",
-            link: "/admin/allocate-student",
-        },
-        {
-            name: "View Mentor",
-            link: "/admin/teacher-students/abc1",
-        }
-    ];
-
-    return(
+    return (
+    <Disclosure as="nav" className="bg-gray-800">
+        {({ open }) => (
         <>
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
+                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    {/* Mobile menu button*/}
+                </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex flex-shrink-0 items-center">
-                        <img
-                        className="block h-8 w-auto lg:block"
-                        src=""
-                        alt="GPM Logo"
-                        />
+                        <NavLink to="/admin/dashboard">
+                            <AiFillHome size={30} color="#fff"/>
+                        </NavLink>
                     </div>
                     <div className="hidden sm:ml-6 sm:block">
                         <ul className="position">
                             <div className="flex space-x-6">
                                 <li className='block py-2 rounded-md text-base font-medium'>
-                                    <NavLink exact to="/dashboard" style={({ isActive }) =>({
+                                    <NavLink exact to="/admin/dashboard" style={({ isActive }) =>({
                                         borderRadius: isActive ? 4 : 0,
                                         paddingBlock: isActive ? 10 : 0,
                                         paddingLeft: isActive ? 10 : 0,
@@ -65,7 +40,7 @@ export default function AdminNavBar() {
                                     </NavLink>
                                 </li>
                                 <li className='block py-2 rounded-md text-base font-medium'>
-                                    <NavLink exact to="/student" style={({ isActive }) =>({
+                                    <NavLink exact to="/admin/student" style={({ isActive }) =>({
                                             borderRadius: isActive ? 4 : 0,
                                             paddingBlock: isActive ? 10 : 0,
                                             paddingLeft: isActive ? 10 : 0,
@@ -76,7 +51,7 @@ export default function AdminNavBar() {
                                         </NavLink>
                                 </li>
                                 <li className='block py-2 rounded-md text-base font-medium'>
-                                    <NavLink exact to="/teacher" style={({ isActive }) =>({
+                                    <NavLink exact to="/admin/teacher" style={({ isActive }) =>({
                                             borderRadius: isActive ? 4 : 0,
                                             paddingBlock: isActive ? 10 : 0,
                                             paddingLeft: isActive ? 10 : 0,
@@ -87,7 +62,7 @@ export default function AdminNavBar() {
                                         </NavLink>
                                 </li>
                                 <li className='block py-2 rounded-md text-base font-medium'>
-                                    <NavLink exact to="/mentor" style={({ isActive }) =>({
+                                    <NavLink exact to="/admin/mentor" style={({ isActive }) =>({
                                             borderRadius: isActive ? 4 : 0,
                                             paddingBlock: isActive ? 10 : 0,
                                             paddingLeft: isActive ? 10 : 0,
@@ -107,11 +82,7 @@ export default function AdminNavBar() {
                         <div>
                             <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                 <span className="sr-only">Open user menu</span>
-                                <img
-                                className="h-8 w-8 rounded-full"
-                                src=""
-                                alt=""
-                                />
+                                <FaUserAlt size={40} color="#cbd5e1" style={{"border":"2px solid #fefefe", "borderRadius":"50%", "padding":"2px"}} />
                             </Menu.Button>
                         </div>
                         <Transition
@@ -150,6 +121,27 @@ export default function AdminNavBar() {
                 </div>
             </div>
         </div>
+        
+        {/* <Disclosure.Panel className="sm:hidden">
+            <div className="space-y-1 px-2 pt-2 pb-3">
+                {navigation.map((item) => (
+                <Disclosure.Button
+                key={item.name}
+                as="a"
+                href={item.href}
+                className={classNames(
+                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    'block px-3 py-2 rounded-md text-base font-medium'
+                )}
+                aria-current={item.current ? 'page' : undefined}
+                >
+                    {item.name}
+                </Disclosure.Button>
+                ))}
+            </div>
+        </Disclosure.Panel> */}
         </>
+        )}
+    </Disclosure>
     )
 }

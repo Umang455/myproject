@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function StudentLogin() {
     const [inputs, setInputs] = React.useState({});
@@ -75,11 +75,11 @@ export default function StudentLogin() {
                 </div>
                 
                 <div className="flex items-center justify-center">
-                    <button
-                    type="submit"
-                    className="items-center px-4 py-2 w-1/4 rounded-md text-white bg-gray-900">
-                        LOGIN
-                    </button>
+                    <NavLink to="/student/dashboard">
+                        <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
+                            LOGIN
+                        </button>
+                    </NavLink>
                 </div>
             </form>
         </div>
