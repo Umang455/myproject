@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function AdminChangeInfo(){
+export default function AdminChangePassword(){
     const [inputs, setInputs] = React.useState("");
 
     const handleChanges = (e) => {
@@ -14,7 +14,7 @@ export default function AdminChangeInfo(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post(`http://localhost:9000/admin/update/info/${localStorage.getItem("userId")}`, inputs)
+            .post(`http://localhost:9000/teacher/update/password/${localStorage.getItem("userId")}`, inputs)
             .then((res) => {
                 alert(res.data.message);
                 localStorage.setItem("info", JSON.stringify(res.data.result));
@@ -33,54 +33,53 @@ export default function AdminChangeInfo(){
     return(
         <>
         <p className="text-3xl p-10 font-semibold text-center">
-             CHANGE INFO
+             CHANGE PASSWORD
         </p>
         <div className="p-6 m-auto bg-gray-100 rounded-md shadow-xl w-1/3">
             <form onSubmit={handleSubmit}>
                 <div className="p-4">
                     <div className="p-2">
                         <label
-                        htmlFor="email"
+                        htmlFor="oldPassword"
                         className="block text-xl">
-                            Email Id :
+                            Old Password :
                         </label>
                         <div className="flex">
                             <input
-                            type="email"
-                            name="email"
-                            autoComplete="on"
+                            type="password"
+                            name="oldPassword"
                             onChange={handleChanges}
                             className="block w-full px-4 py-2 mt-2 border"/>
                         </div>
                     </div>
                     <div className="p-2">
                         <label
-                        htmlFor="contact"
+                        htmlFor="newPassword"
                         className="block text-xl">
-                            Contact No :
+                            New Password :
                         </label>
                         <div className="flex">
                             <input
-                            type="number"
-                            name="mobile_no"
-                            autoComplete="on"
+                            type="password"
+                            name="newPassword"
                             onChange={handleChanges}
                             className="block w-full px-4 py-2 mt-2 border"/>
                         </div>
                     </div>
-                    {/* <div className="p-2">
+                    <div className="p-2">
                         <label
-                        htmlFor="contact"
+                        htmlFor="confirmPassword"
                         className="block text-xl">
-                            About :
+                            Confirm Password :
                         </label>
                         <div className="flex">
-                            <textarea
-                            name="about"
+                            <input
+                            type="password"
+                            name="confirmPassword"
                             onChange={handleChanges}
                             className="block w-full px-4 py-2 mt-2 border"/>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
                 
                 <div className="flex items-center justify-center">

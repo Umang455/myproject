@@ -93,7 +93,17 @@ export default function StudentNavBar() {
                                         </button>
                                     </NavLink>
                                     )}
-                                    </Menu.Item>
+                                </Menu.Item>
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <NavLink to="/student/change-password">
+                                            <button
+                                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                                                Change Password
+                                            </button>
+                                        </NavLink>
+                                    )}
+                                </Menu.Item>
                                 <Menu.Item>
                                     {({ active }) => (
                                     <button

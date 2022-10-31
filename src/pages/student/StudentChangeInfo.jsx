@@ -68,48 +68,19 @@ export default function StudentChangeInfo(){
                             className="block w-full px-4 py-2 mt-2 border"/>
                         </div>
                     </div>
-                    <div className="p-2">
+                    {/* <div className="p-2">
                         <label
-                        htmlFor="password"
+                        htmlFor="contact"
                         className="block text-xl">
-                            Old Password :
+                            About :
                         </label>
                         <div className="flex">
-                            <input
-                            type="password"
-                            name="password"
+                            <textarea
+                            name="about"
                             onChange={handleChanges}
                             className="block w-full px-4 py-2 mt-2 border"/>
                         </div>
-                    </div>
-                    <div className="p-2">
-                        <label
-                        htmlFor="password"
-                        className="block text-xl">
-                            New Password :
-                        </label>
-                        <div className="flex">
-                            <input
-                            type="password"
-                            name="password"
-                            onChange={handleChanges}
-                            className="block w-full px-4 py-2 mt-2 border"/>
-                        </div>
-                    </div>
-                    <div className="p-2">
-                        <label
-                        htmlFor="password"
-                        className="block text-xl">
-                            Confirm Password :
-                        </label>
-                        <div className="flex">
-                            <input
-                            type="password"
-                            name="password"
-                            onChange={handleChanges}
-                            className="block w-full px-4 py-2 mt-2 border"/>
-                        </div>
-                    </div>
+                    </div> */}
                 </div>
                 
                 <div className="flex items-center justify-center">
