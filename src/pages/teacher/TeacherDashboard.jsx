@@ -1,22 +1,16 @@
 import React from "react";
-import axios from "axios";
+import { useEffect } from "react";
 
 export default function TeacherDashboard() {
-    // const auth = true;
+    const [content, setContent] = React.useState({});
 
-    // const [content, setContent] = React.useState([]);
-
-    // React.useEffect(() => {
-    //     axios
-    //         .get("http://localhost:9000/teacher/:id")
-    //         .then((res) => {
-    //             console.log(res);
-    //             setContent(res.data);
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    // }, []);
+    useEffect(() => {
+        localStorage.getItem("info")
+        return () => {
+            setContent(JSON.parse(localStorage.getItem("info")));
+        }
+    }, [])
+    
 
     return (
         <>
@@ -32,27 +26,19 @@ export default function TeacherDashboard() {
                                 <dl>
                                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt className="text-sm font-medium text-gray-500">Full name</dt>
-                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Margot Foster</dd>
+                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{content.name}</dd>
                                     </div>
                                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt className="text-sm font-medium text-gray-500">Designation</dt>
-                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Backend Developer</dd>
+                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Prof.</dd>
                                     </div>
                                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt className="text-sm font-medium text-gray-500">Email address</dt>
-                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">margotfoster@example.com</dd>
+                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{content.email}</dd>
                                     </div>
                                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt className="text-sm font-medium text-gray-500">Contact No.</dt>
-                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">+91 9876543210</dd>
-                                    </div>
-                                    <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt className="text-sm font-medium text-gray-500">About</dt>
-                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                            Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
-                                            qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
-                                            pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
-                                        </dd>
+                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">+91 {content.mobile_no}</dd>
                                     </div>
                                 </dl>
                             </div>

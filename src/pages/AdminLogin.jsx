@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Route, Link, useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 
 export default function AdminLogin() {
@@ -15,8 +14,6 @@ export default function AdminLogin() {
     localStorage.setItem("authenticated", false);
     localStorage.setItem("userId", null);
     localStorage.setItem("info", null);
-    
-    // let auth = false;
 
     const handleChanges = (e) => {
         const name = e.target.name;
@@ -81,54 +78,13 @@ export default function AdminLogin() {
                 </div>
                 
                 <div className="flex items-center justify-center">
-                    
-                        <button
-                        type="submit"
-                        className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
-                            {/* <Link to={auth && <Route to="/admin/dashboard" />}> */}
-                                LOGIN
-                            {/* </Link> */}
-                        </button>
+                    <button
+                    type="submit"
+                    className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
+                        LOGIN
+                    </button>
                 </div>
             </form>
-            {/* <form>
-                <div className="p-4">
-                    <div className="p-2">
-                        <label
-                        htmlFor="username"
-                        className="block text-xl">
-                            Username :
-                        </label>
-                        <div className="flex">
-                            <input
-                            type="text"
-                            name="username"
-                            className="block w-full px-4 py-2 mt-2 border"/>
-                        </div>
-                    </div>
-                    <div className="p-2">
-                        <label
-                        htmlFor="password"
-                        className="block text-xl">
-                            Password :
-                        </label>
-                        <div className="flex">
-                            <input
-                            type="password"
-                            name="password"
-                            className="block w-full px-4 py-2 mt-2 border"/>
-                        </div>
-                    </div>
-                </div>
-                
-                <div className="flex items-center justify-center">
-                    <NavLink to="/admin/dashboard">
-                        <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-slate-700">
-                            LOGIN
-                        </button>
-                    </NavLink>
-                </div>
-            </form> */}
         </div>
         </>
     )

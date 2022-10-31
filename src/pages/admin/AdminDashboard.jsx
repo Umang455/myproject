@@ -1,16 +1,11 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useEffect } from "react";
 
 export default function AdminDashboard() {
-    // const auth = true;
-    // const [authenticated, setauthenticated] = useState(null);
-    
-
     const [content, setContent] = React.useState({});
 
     useEffect(() => {
       localStorage.getItem('info') 
-    //   console.log(localStorage.getItem('info'))
       return () => {
           setContent(JSON.parse(localStorage.getItem('info')));
       }
@@ -19,16 +14,6 @@ export default function AdminDashboard() {
 
     return (
         <>
-        {/* <h1>Admin Dashboard</h1>
-        <p>{props.id}</p>
-        <p>{content}</p>
-            {auth ? <AdminNavBar/> : <AdminLogin />}
-            {/* {content.map((item) => (
-                <div key={item._id}>
-                    <h2>{item.username}</h2>
-                </div>
-            ))} */}
-        
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
                 <div className="px-4 py-6 sm:px-0">
                     <div className="h-auto rounded-lg border-4 border-dashed border-gray-200">

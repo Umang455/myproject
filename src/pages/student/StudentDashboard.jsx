@@ -1,35 +1,18 @@
 import React from "react";
+import { useEffect } from "react";
 
 export default function StudentDashboard() {
-    // const auth = true;
-    
+    const [content, setContent] = React.useState({});
 
-    // const [content, setContent] = React.useState([]);
-
-    // React.useEffect(() => {
-    //     axios
-    //         .get(`http://localhost:9000/admin/${props.id}`)
-    //         .then((res) => {
-    //             // console.log(res);
-    //             setContent(res.data);
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    // }, [auth]);
+    useEffect(() => {
+        localStorage.getItem('info')
+        return () => {
+            setContent(JSON.parse(localStorage.getItem('info')));
+        }
+    }, [])
 
     return (
-        <>
-        {/* <h1>Admin Dashboard</h1>
-        <p>{props.id}</p>
-        <p>{content}</p>
-            {auth ? <AdminNavBar/> : <AdminLogin />}
-            {/* {content.map((item) => (
-                <div key={item._id}>
-                    <h2>{item.username}</h2>
-                </div>
-            ))} */}
-        
+        <>        
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
                 <div className="px-4 py-6 sm:px-0">
                     <div className="h-auto rounded-lg border-4 border-dashed border-gray-200">
@@ -42,19 +25,19 @@ export default function StudentDashboard() {
                                 <dl>
                                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt className="text-sm font-medium text-gray-500">Full name</dt>
-                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Margot Foster</dd>
+                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{content.name}</dd>
                                     </div>
                                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt className="text-sm font-medium text-gray-500">Designation</dt>
-                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Backend Developer</dd>
+                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Student</dd>
                                     </div>
                                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt className="text-sm font-medium text-gray-500">Email address</dt>
-                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">margotfoster@example.com</dd>
+                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{content.email}</dd>
                                     </div>
                                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt className="text-sm font-medium text-gray-500">Contact No.</dt>
-                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">+91 9876543210</dd>
+                                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">+91 {content.mobile_no}</dd>
                                     </div>
                                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt className="text-sm font-medium text-gray-500">About</dt>
