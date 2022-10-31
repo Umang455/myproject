@@ -29,6 +29,9 @@ import StudentNavBar from "./components/StudentNavBar"
 import StudentDashboard from "./pages/student/StudentDashboard"
 import StudentDocuments from "./pages/student/StudentDocuments"
 import StudentUploadDocuments from "./pages/student/StudentUploadDocuments"
+import AdminChangeInfo from "./pages/admin/AdminChangeInfo"
+import TeacherChangeInfo from "./pages/teacher/TeacherChangeInfo"
+import StudentChangeInfo from "./pages/student/StudentChangeInfo"
 
 
 
@@ -53,15 +56,18 @@ export default function App() {
       <Route exact path="/admin/teacher/add-teacher" element={[<Head />, <AdminNavBar />, <AddTeacher />]} />
       <Route exact path="/admin/teacher/delete-teacher" element={[<Head />, <AdminNavBar />, <DeleteTeacher />]} />
       <Route exact path="/admin/teacher/teacher-list" element={[<Head />, <AdminNavBar />, <ViewTeachers />]} />
+      <Route exact path="/admin/change-info" element={[<Head />, <AdminNavBar />, <AdminChangeInfo />]} />
       <Route exact path="/admin/mentor" element={[<Head />, <AdminNavBar />, <AdminMentor />]} />
       <Route exact path="/admin/mentor/allocate-mentor" element={[<Head />, <AdminNavBar />, <AllocateMentor />]} />
       <Route exact path="/admin/mentor/mentor-list" element={[<Head />, <AdminNavBar />, <ViewMentors />]} />
       <Route exact path="/teacher/dashboard" element={[<Head />, <TeacherNavBar />, <TeacherDashboard />]} />
       <Route exact path="/teacher/student" element={[<Head />, <TeacherNavBar />, <TeacherStudent />]} />
       <Route exact path="/teacher/allocated-students" element={[<Head />, <TeacherNavBar />, <TeacherAllocatedStudents />]} />
+      <Route exact path="/teacher/change-info" element={[<Head />, <TeacherNavBar />, <TeacherChangeInfo />]} />
       <Route exact path="/student/dashboard" element={[<Head />, <StudentNavBar />, <StudentDashboard />]} />
       <Route exact path="/student/documents" element={[<Head />, <StudentNavBar />, <StudentDocuments />]} />
       <Route exact path="/student/upload-documents" element={[<Head />, <StudentNavBar />, <StudentUploadDocuments />]} />
+      <Route exact path="/student/change-info" element={[<Head />, <StudentNavBar />, <StudentChangeInfo />]} />
     </Routes>
     </>
   )
