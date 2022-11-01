@@ -12,8 +12,8 @@ export default function AdminLogin() {
     const [info, setInfo] = useState(localStorage.getItem("info"));
 
     localStorage.setItem("authenticated", false);
-    localStorage.setItem("userId", null);
-    localStorage.setItem("info", null);
+    localStorage.setItem("userId", "");
+    localStorage.setItem("info", "");
 
     const handleChanges = (e) => {
         const name = e.target.name;
