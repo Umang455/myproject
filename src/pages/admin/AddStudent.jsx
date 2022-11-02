@@ -37,32 +37,6 @@ export default function AddStudent(){
                     </div>
                     <div className="p-2">
                         <label
-                        htmlFor="email"
-                        className="block text-xl">
-                            Email Id :
-                        </label>
-                        <div className="flex">
-                            <input
-                            type="email"
-                            name="email"
-                            className="block w-full px-4 py-2 mt-2 border"/>
-                        </div>
-                    </div>
-                    <div className="p-2">
-                        <label
-                        htmlFor="contact"
-                        className="block text-xl">
-                            Contact No :
-                        </label>
-                        <div className="flex">
-                            <input
-                            type="number"
-                            name="contact"
-                            className="block w-full px-4 py-2 mt-2 border"/>
-                        </div>
-                    </div>
-                    <div className="p-2">
-                        <label
                         htmlFor="password"
                         className="block text-xl">
                             Password :
