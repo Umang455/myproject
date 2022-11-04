@@ -44,7 +44,6 @@ export default function AddTeacher(){
                             <input
                             type="text"
                             onChange={handleChanges}
-                            name="name"
                             className="block w-full px-4 py-2 mt-2 border"/>
                         </div>
                     </div>
@@ -72,12 +71,10 @@ export default function AddTeacher(){
                             <input
                             type="password"
                             onChange={handleChanges}
-                            name="password"
                             className="block w-full px-4 py-2 mt-2 border"/>
                         </div>
                     </div>
                 </div>
-                
                 <div className="flex items-center justify-center">
                     <button
                     type="submit"
