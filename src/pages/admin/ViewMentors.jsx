@@ -7,21 +7,14 @@ export default function ViewMentors(){
     const [teacher, setTeacher] = useState(null);
 
     useEffect(()=>{
-
         
         axios.get('http://localhost:9000/admin/teachers/list')
         .then((res)=>{
             setTeacher(res.data.teachers)
         })
-        
-        // axios.get(`http://localhost:9000/admin/allocated-student/${document.getElementById('teacherName').value}`)
-        //     .then((res)=>{
-        //         setContent(res.data.students)
-        // })
 
     },[])
     if(!teacher) return null;
-    // if(!content) return null;
 
     const handleChanges = (e) => {
         const name = e.target.name;
