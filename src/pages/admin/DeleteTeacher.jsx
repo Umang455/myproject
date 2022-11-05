@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export default function DeleteTeacher(){
 
-
     const [inputs, setInputs] = useState({});
 
     const handleChanges = (e) => {
@@ -14,11 +13,11 @@ export default function DeleteTeacher(){
     
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("working");
         axios
         .post("http://localhost:9000/admin/delete-teacher", inputs)
         .then((res) => {
             alert(res.data.message);
-            // console.log(res)
         })
         .catch((err) => {
             console.log('error : ',err);

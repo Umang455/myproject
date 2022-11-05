@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default function ViewMentors(){
     const [inputs, setInputs] = useState({});
-    const [content,setContent] = useState(null);
+    const [content,setContent] = useState([]);
     const [teacher, setTeacher] = useState(null);
 
     useEffect(()=>{
@@ -29,6 +29,7 @@ export default function ViewMentors(){
         .get(`http://localhost:9000/admin/allocated-student/${document.getElementById('teacherName').value}`)
         .then((res) => {
             setContent(res.data.students)
+            console.log(content)
         })
         .catch((err) => {
             console.log('error : ',err);
@@ -89,12 +90,12 @@ export default function ViewMentors(){
                         {
                             content.map((element)=>{
                                 return (
-                        <tr className="text-center border-b text-sm ">
-                            <td className="p-2 border-r">{element.name}</td>
-                            <td className="p-2 border-r">{element.enrollment_no}</td>
-                            <td className="p-2 border-r">{element.mobile_no}</td>
-                            <td className="p-2 border-r">{element.email}</td>
-                        </tr>
+                                <tr className="text-center border-b text-sm ">
+                                    <td className="p-2 border-r">{element.name}</td>
+                                    <td className="p-2 border-r">{element.enrollment_no}</td>
+                                    <td className="p-2 border-r">{element.mobile_no}</td>
+                                    <td className="p-2 border-r">{element.email}</td>
+                                </tr>
                                 )
                             })
                         }

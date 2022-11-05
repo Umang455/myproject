@@ -66,11 +66,6 @@ export default function AllocateMentor(){
                 <table className="w-full border">
                     <thead>
                         <tr className="bg-gray-50 border-b">
-                        <th className="p-2 border-r cursor-pointer text-sm font-thin ">
-                                <div className="flex items-center justify-center">
-                                    Sr No.
-                                </div>
-                            </th>
                             <th className="p-2 border-r cursor-pointer text-sm font-thin ">
                                 <div className="flex items-center justify-center">
                                     Name
@@ -104,7 +99,6 @@ export default function AllocateMentor(){
                             content.map((element)=>{
                                 return (
                         <tr className="text-center border-b text-sm ">
-                            <td className="p-2 border-r">1</td>
                             <td className="p-2 border-r">{element.name}</td>
                             <td className="p-2 border-r">{element.enrollment_no}</td>
                             <td className="p-2 border-r">{element.mobile_no}</td>
