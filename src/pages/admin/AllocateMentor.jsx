@@ -1,100 +1,132 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+
 
 export default function AllocateMentor(){
+    const [inputs, setInputs] = useState({});
+
+    const [content,setContent] = useState(null);
+    const [teacher, setTeacher] = useState(null);
+    
+    useEffect(()=>{
+
+        axios.get('http://localhost:9000/admin/unallocated-students')
+            .then((res)=>{
+                setContent(res.data.students)
+            })
+
+        axios.get('http://localhost:9000/admin/teachers/list')
+            .then((res)=>{
+                setTeacher(res.data.teachers)
+            })
+
+    },[])
+    if(!content) return null;
+    if(!teacher) return null;
+
+
+    const handleChanges = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setInputs(values => ({ ...values, [name]: value }));
+        console.log(inputs);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios
+        .post(`http://localhost:9000/admin/allocate-student/${document.getElementById('studentId').value}/${document.getElementById('teacherName').value}`, inputs)
+        .then((res) => {
+            alert(res.data.message);
+        })
+        .catch((err) => {
+            console.log('error : ',err);
+            alert(err.response.data.message);
+        });
+    };
+
     return(
         <>
         <p className="text-3xl p-10 font-semibold text-center">
             ALLOCATE MENTOR
         </p>
-        <div className="text-3xl text-center">
-            <select>
-                <option value="bac">bac</option>
-                <option value="dar">dar</option>
-                <option value="llb">llb</option>
-                <option value="abc">abc</option>
-                <option value="xyz">xyz</option>
-            </select>
-        </div>
-        <div class="p-6 m-auto w-1/2">
-            <table class="w-full border">
-                <thead>
-                    <tr class="bg-gray-50 border-b">
-                    <th class="p-2 border-r cursor-pointer text-sm font-thin ">
-                            <div class="flex items-center justify-center">
-                                Sr No.
-                            </div>
-                        </th>
-                        <th class="p-2 border-r cursor-pointer text-sm font-thin ">
-                            <div class="flex items-center justify-center">
-                                Name
-                            </div>
-                        </th>
-                        <th class="p-2 border-r cursor-pointer text-sm font-thin ">
-                            <div class="flex items-center justify-center">
-                                Enrollment No.
-                            </div>
-                        </th>
-                        <th class="p-2 border-r cursor-pointer text-sm font-thin ">
-                            <div class="flex items-center justify-center">
-                                Mobile No.
-                            </div>
-                        </th>
-                        <th class="p-2 border-r cursor-pointer text-sm font-thin ">
-                            <div class="flex items-center justify-center">
-                                Email Id
-                            </div>
-                        </th>
-                        <th class="p-2 border-r cursor-pointer text-sm font-thin ">
-                            <div class="flex items-center justify-center">
-                                Allocate
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-center border-b text-sm ">
-                        <td class="p-2 border-r">1</td>
-                        <td class="p-2 border-r">Himanshu Bharambe</td>
-                        <td class="p-2 border-r">FS20CO032</td>
-                        <td class="p-2 border-r">9987654321</td>
-                        <td class="p-2 border-r">abc@gmail.com</td>
-                        <input type="checkbox" id="topping" name="topping" value="Paneer" />
-                    </tr>
-                    <tr class="text-center border-b text-sm ">
-                        <td class="p-2 border-r">2</td>
-                        <td class="p-2 border-r">Pranav Dhawale</td>
-                        <td class="p-2 border-r">FW20CO001</td>
-                        <td class="p-2 border-r">9807685043</td>
-                        <td class="p-2 border-r">pranav@gmail.com</td>
-                        <input type="checkbox" id="topping" name="topping" value="Paneer" />
-                    </tr>
-                    <tr class="text-center border-b text-sm ">
-                        <td class="p-2 border-r">3</td>
-                        <td class="p-2 border-r">Pranav Dhawale</td>
-                        <td class="p-2 border-r">FW20CO001</td>
-                        <td class="p-2 border-r">9807685043</td>
-                        <td class="p-2 border-r">pranav@gmail.com</td>
-                        <input type="checkbox" id="topping" name="topping" value="Paneer" />
-                    </tr>
-                    <tr class="text-center border-b text-sm ">
-                        <td class="p-2 border-r">4</td>
-                        <td class="p-2 border-r">Pranav Dhawale</td>
-                        <td class="p-2 border-r">FW20CO001</td>
-                        <td class="p-2 border-r">9807685043</td>
-                        <td class="p-2 border-r">pranav@gmail.com</td>
-                        <input type="checkbox" id="topping" name="topping" value="Paneer" />
-                    </tr>
-                    <tr class="text-center border-b text-sm ">
-                        <td class="p-2 border-r">5</td>
-                        <td class="p-2 border-r">Pranav Dhawale</td>
-                        <td class="p-2 border-r">FW20CO001</td>
-                        <td class="p-2 border-r">9807685043</td>
-                        <td class="p-2 border-r">pranav@gmail.com</td>
-                        <input type="checkbox" id="topping" name="topping" value="Paneer" />
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <div className="text-3xl text-center">             
+                <select id="teacherName" onClick={handleChanges}>
+                    <option>Select Teacher</option>
+                    {
+                    teacher.map((element)=>{
+                    return(
+                    <option value={element.name}>{element.name}</option>
+                    )
+                })}
+                </select>
+            </div>
+            <div className="p-6 m-auto w-1/2">
+                <table className="w-full border">
+                    <thead>
+                        <tr className="bg-gray-50 border-b">
+                        <th className="p-2 border-r cursor-pointer text-sm font-thin ">
+                                <div className="flex items-center justify-center">
+                                    Sr No.
+                                </div>
+                            </th>
+                            <th className="p-2 border-r cursor-pointer text-sm font-thin ">
+                                <div className="flex items-center justify-center">
+                                    Name
+                                </div>
+                            </th>
+                            <th className="p-2 border-r cursor-pointer text-sm font-thin ">
+                                <div className="flex items-center justify-center">
+                                    Enrollment No.
+                                </div>
+                            </th>
+                            <th className="p-2 border-r cursor-pointer text-sm font-thin ">
+                                <div className="flex items-center justify-center">
+                                    Mobile No.
+                                </div>
+                            </th>
+                            <th className="p-2 border-r cursor-pointer text-sm font-thin ">
+                                <div className="flex items-center justify-center">
+                                    Email Id
+                                </div>
+                            </th>
+                            <th className="p-2 border-r cursor-pointer text-sm font-thin ">
+                                <div className="flex items-center justify-center">
+                                    Allocate
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* <NavLink></NavLink> */}
+                        {
+                            content.map((element)=>{
+                                return (
+                        <tr className="text-center border-b text-sm ">
+                            <td className="p-2 border-r">1</td>
+                            <td className="p-2 border-r">{element.name}</td>
+                            <td className="p-2 border-r">{element.enrollment_no}</td>
+                            <td className="p-2 border-r">{element.mobile_no}</td>
+                            <td className="p-2 border-r">{element.email}</td>
+                            <td className="p-2 border-r">
+                                <input type="checkbox" id="studentId" value={element._id} onClick={handleChanges}/>
+                            </td>
+                        </tr>
+                                )
+                            })
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div className="flex items-center justify-center">
+                <button
+                type="submit"
+                className="items-center px-4 py-2 w-1/4 rounded-md text-white bg-gray-900">
+                    ADD
+                </button>
+            </div>
+        </form>
 
         </>
     )
