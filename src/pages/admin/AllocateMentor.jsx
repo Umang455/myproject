@@ -7,6 +7,8 @@ export default function AllocateMentor(){
 
     const [content,setContent] = useState(null);
     const [teacher, setTeacher] = useState(null);
+
+    const studentIdArr = [];
     
     useEffect(()=>{
 
@@ -33,9 +35,11 @@ export default function AllocateMentor(){
     };
 
     const handleSubmit = (e) => {
+        const url = `http://localhost:9000/admin/allocate-student/${document.getElementById('teacherUserName').value}?students=${[studentIdArr]}`;
+        console.log(url);
         e.preventDefault();
         axios
-        .post(`http://localhost:9000/admin/allocate-student/${document.getElementById('studentId').value}/${document.getElementById('teacherName').value}`, inputs)
+        .post(url, inputs)
         .then((res) => {
             alert(res.data.message);
         })
@@ -52,12 +56,12 @@ export default function AllocateMentor(){
         </p>
         <form onSubmit={handleSubmit}>
             <div className="text-3xl text-center">             
-                <select id="teacherName" onClick={handleChanges}>
+                <select id="teacherUserName" onClick={handleChanges}>
                     <option>Select Teacher</option>
                     {
                     teacher.map((element)=>{
                     return(
-                    <option value={element.name}>{element.name}</option>
+                    <option value={element.username}>{element.name}</option>
                     )
                 })}
                 </select>
@@ -104,7 +108,15 @@ export default function AllocateMentor(){
                             <td className="p-2 border-r">{element.mobile_no}</td>
                             <td className="p-2 border-r">{element.email}</td>
                             <td className="p-2 border-r">
-                                <input type="checkbox" id="studentId" value={element._id} onClick={handleChanges}/>
+                                <input type="checkbox" id="studentId" value={element._id} onClick={(e)=>{
+                                    if(e.target.checked){
+                                        studentIdArr.push(element._id)
+                                    }
+                                    if(!e.target.checked){
+                                        studentIdArr.pop(element._id)
+                                    }
+                                    console.log(studentIdArr);
+                                }}/>
                             </td>
                         </tr>
                                 )
