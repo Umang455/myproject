@@ -34,19 +34,43 @@ export default function AllocateMentor(){
         console.log(inputs);
     };
 
-    const handleSubmit = (e) => {
-        const url = `http://localhost:9000/admin/allocate-student/${document.getElementById('teacherUserName').value}?students=${[studentIdArr]}`;
-        console.log(url);
-        e.preventDefault();
-        axios
-        .post(url, inputs)
-        .then((res) => {
-            alert(res.data.message);
-        })
-        .catch((err) => {
-            console.log('error : ',err);
-            alert(err.response.data.message);
-        });
+    const AllocateStudent = (studentID) => {
+
+        const url = `http://localhost:9000/admin/allocate-single-student/${document.getElementById('teacherUserName').value}/${studentID}`
+        
+        axios.
+        post(url)
+        .then((res)=>{
+            console.log(
+                'response==',res)
+            })
+            console.log('ALlocate:',studentID);
+        }
+        
+        const DeallocateStudent = (studentID) => {
+            const url = `http://localhost:9000/admin/deallocate-single-student/${document.getElementById('teacherUserName').value}/${studentID}`
+            axios.
+            post(url)
+            .then((res)=>{
+                console.log('response==',res)
+                })
+        console.log('Deallocate:',studentID);
+    }
+
+
+    const handleSubmit = () => {
+        // const url = `http://localhost:9000/admin/allocate-student/${document.getElementById('teacherUserName').value}?students=${[studentIdArr]}`;
+        // console.log(url);
+        alert('Mentor allocated successfully')
+        // axios
+        // .post(url, inputs)
+        // .then((res) => {
+        //     alert(res.data.message);
+        // })
+        // .catch((err) => {
+        //     console.log('error : ',err);
+        //     alert(err.response.data.message);
+        // });
     };
 
     return(
@@ -98,7 +122,6 @@ export default function AllocateMentor(){
                         </tr>
                     </thead>
                     <tbody>
-                        {/* <NavLink></NavLink> */}
                         {
                             content.map((element)=>{
                                 return (
@@ -110,12 +133,11 @@ export default function AllocateMentor(){
                             <td className="p-2 border-r">
                                 <input type="checkbox" id="studentId" value={element._id} onClick={(e)=>{
                                     if(e.target.checked){
-                                        studentIdArr.push(element._id)
+                                        AllocateStudent(element._id)
                                     }
                                     if(!e.target.checked){
-                                        studentIdArr.pop(element._id)
+                                        DeallocateStudent(element._id)
                                     }
-                                    console.log(studentIdArr);
                                 }}/>
                             </td>
                         </tr>
