@@ -7,8 +7,6 @@ export default function AllocateMentor(){
 
     const [content,setContent] = useState(null);
     const [teacher, setTeacher] = useState(null);
-
-    const studentIdArr = [];
     
     useEffect(()=>{
 
@@ -44,7 +42,7 @@ export default function AllocateMentor(){
             console.log(
                 'response==',res)
             })
-            console.log('ALlocate:',studentID);
+            console.log('Allocate:',studentID);
         }
         
         const DeallocateStudent = (studentID) => {
