@@ -35,6 +35,7 @@ import TeacherChangeInfo from "./pages/teacher/TeacherChangeInfo"
 import TeacherChangePassword from "./pages/teacher/TeacherChangePassword"
 import StudentChangeInfo from "./pages/student/StudentChangeInfo"
 import StudentChangePassword from "./pages/student/StudentChangePassword"
+import StudentProfile from "./components/StudentProfile"
 
 
 
@@ -43,6 +44,7 @@ export default function App() {
   return (
     <>
     <Routes>
+    <Route exact path="/admin/student-profile" element={[<Head/>,<AdminNavBar/>,<StudentProfile />]} />
       <Route exact path="/" element={[<Head />, <HeroNavBar />, <HeroSection />]} />
       <Route exact path="/about" element={[<Head />, <HeroNavBar />, <About />]} />
       <Route exact path="/contact" element={[<Head />, <HeroNavBar />, <Contact />]} />
