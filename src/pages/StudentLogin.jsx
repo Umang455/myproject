@@ -57,6 +57,7 @@ export default function StudentLogin() {
                             <input
                             type="text"
                             name="enrollment_no"
+                            required
                             onChange={handleChanges}
                             className="block w-full px-4 py-2 mt-2 border"/>
                         </div>
@@ -71,6 +72,7 @@ export default function StudentLogin() {
                             <input
                             type="password"
                             name="password"
+                            required
                             onChange={handleChanges}
                             className="block w-full px-4 py-2 mt-2 border"/>
                         </div>
