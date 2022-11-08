@@ -44,7 +44,7 @@ export default function ViewStudents() {
     return (
         <>
             <div className={model ? '' : 'hidden'} id="model">
-                <button onClick={() => { setModel(false) }}>X</button>
+                <button className="bg-red-400 font-bold ml-5 mt-5 p-3 rounded-lg" onClick={() => { setModel(false) }}>X</button>
                 {info? <StudentProfile name={info.name || ""} enrollment_no={info.enrollment_no || ""} mentor={info.mentor || ""} email={info.email || "Contact details not found"} mobile_no={info.mobile_no || "Mobile number not found"} /> : 'loading...'}
                 
             </div>
@@ -96,7 +96,7 @@ export default function ViewStudents() {
                             {
                                 content.map((element) => {
                                     return (
-                                        <tr key={element._id} className="text-center border-b text-sm" onClick={() => { setModel(true); localStorage.setItem('studentInfo',JSON.stringify(element))}}>
+                                        <tr key={element._id} className="text-center border-b text-sm hover:bg-green-300" onClick={() => { setModel(true); localStorage.setItem('studentInfo',JSON.stringify(element))}}>
                                             <td className="p-2 border-r">{element.name}</td>
                                             <td className="p-2 border-r">{element.enrollment_no}</td>
                                             <td className="p-2 border-r">{element.mobile_no}</td>
