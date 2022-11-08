@@ -25,7 +25,7 @@ export default function AdminLogin() {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post("http://localhost:9000/admin/login", inputs)
+            .post("https://inplant-backend.onrender.com/admin/login", inputs)
             .then((res) => {
                 alert(res.data.message);
                 localStorage.setItem("authenticated", true);

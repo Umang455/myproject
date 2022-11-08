@@ -14,7 +14,7 @@ export default function AddStudent(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-        .post("http://localhost:9000/admin/add-student", inputs)
+        .post("https://inplant-backend.onrender.com/admin/add-student", inputs)
         .then((res) => {
             alert(res.data.message);
         })

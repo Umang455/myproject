@@ -14,7 +14,7 @@ export default function AdminChangePassword(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post(`http://localhost:9000/teacher/update/password/${localStorage.getItem("userId")}`, inputs)
+            .post(`https://inplant-backend.onrender.com/teacher/update/password/${localStorage.getItem("userId")}`, inputs)
             .then((res) => {
                 alert(res.data.message);
                 localStorage.setItem("info", JSON.stringify(res.data.result));

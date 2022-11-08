@@ -8,7 +8,7 @@ export default function ViewTeachers(){
     
     useEffect(()=>{
 
-        axios.get('http://localhost:9000/admin/teachers/list')
+        axios.get('https://inplant-backend.onrender.com/admin/teachers/list')
             .then((res)=>{
                 setContent(res.data.teachers)
             })

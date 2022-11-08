@@ -10,12 +10,12 @@ export default function AllocateMentor(){
     
     useEffect(()=>{
 
-        axios.get('http://localhost:9000/admin/unallocated-students')
+        axios.get('https://inplant-backend.onrender.com/admin/unallocated-students')
             .then((res)=>{
                 setContent(res.data.students)
             })
 
-        axios.get('http://localhost:9000/admin/teachers/list')
+        axios.get('https://inplant-backend.onrender.com/admin/teachers/list')
             .then((res)=>{
                 setTeacher(res.data.teachers)
             })
@@ -34,7 +34,7 @@ export default function AllocateMentor(){
 
     const AllocateStudent = (studentID) => {
 
-        const url = `http://localhost:9000/admin/allocate-single-student/${document.getElementById('teacherUserName').value}/${studentID}`
+        const url = `https://inplant-backend.onrender.com/admin/allocate-single-student/${document.getElementById('teacherUserName').value}/${studentID}`
         
         axios.
         post(url)
@@ -46,7 +46,7 @@ export default function AllocateMentor(){
         }
         
         const DeallocateStudent = (studentID) => {
-            const url = `http://localhost:9000/admin/deallocate-single-student/${document.getElementById('teacherUserName').value}/${studentID}`
+            const url = `https://inplant-backend.onrender.com/admin/deallocate-single-student/${document.getElementById('teacherUserName').value}/${studentID}`
             axios.
             post(url)
             .then((res)=>{
@@ -57,7 +57,7 @@ export default function AllocateMentor(){
 
 
     const handleSubmit = () => {
-        // const url = `http://localhost:9000/admin/allocate-student/${document.getElementById('teacherUserName').value}?students=${[studentIdArr]}`;
+        // const url = `https://inplant-backend.onrender.com/admin/allocate-student/${document.getElementById('teacherUserName').value}?students=${[studentIdArr]}`;
         // console.log(url);
         alert('Mentor allocated successfully')
         // axios

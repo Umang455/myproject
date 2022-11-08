@@ -24,7 +24,7 @@ export default function TeacherLogin() {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-        .post("http://localhost:9000/teacher/login", inputs)
+        .post("https://inplant-backend.onrender.com/teacher/login", inputs)
         .then((res) => {
             alert(res.data.message);
             localStorage.setItem("authenticated", true);
