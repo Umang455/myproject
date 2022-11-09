@@ -14,7 +14,7 @@ export default function DeleteStudent(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-        .post("https://inplant-backend.onrender.com/admin/delete-student", inputs)
+        .post("http://localhost:9000/admin/delete-student", inputs)
         .then((res) => {
             alert(res.data.message);
         })

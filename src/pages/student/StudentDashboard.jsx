@@ -1,10 +1,19 @@
 import React from "react";
+import axios from "axios";
 import { useEffect } from "react";
 
 export default function StudentDashboard() {
     const [content, setContent] = React.useState({});
 
+    const [links, setLinks] = React.useState([]);
+
     useEffect(() => {
+        axios.get(`http://localhost:9000/admin/students/${JSON.parse(localStorage.getItem('info'))._id}/documents`).then((res) => {
+            // setContent(res.data);
+            setLinks(res.data.documents);
+            // setLinks(res.data.links);
+        });
+
         localStorage.getItem('info')
         return () => {
             setContent(JSON.parse(localStorage.getItem('info')));
@@ -51,26 +60,25 @@ export default function StudentDashboard() {
                                         <dt className="text-sm font-medium text-gray-500">Attachments</dt>
                                         <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                                         <ul role="list" className="divide-y divide-gray-200 rounded-md border border-gray-200">
-                                            <li className="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
-                                            <div className="flex w-0 flex-1 items-center">
-                                                <span className="ml-2 w-0 flex-1 truncate">resume_back_end_developer.pdf</span>
-                                            </div>
-                                            <div className="ml-4 flex-shrink-0">
-                                                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                                Download
-                                                </a>
-                                            </div>
-                                            </li>
-                                            <li className="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
-                                            <div className="flex w-0 flex-1 items-center">
-                                                <span className="ml-2 w-0 flex-1 truncate">coverletter_back_end_developer.pdf</span>
-                                            </div>
-                                            <div className="ml-4 flex-shrink-0">
-                                                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                                Download
-                                                </a>
-                                            </div>
-                                            </li>
+
+                                            {links.map((link) => (
+                                                <li key={link._id} className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                                                    <div className="w-0 flex-1 flex items-center">
+                                                        <svg className="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                            <path fillRule="evenodd" d="M5 3a1 1 0 011-1h8a1 1 0 011 1v12a1 1 0 01-1 1H6a1 1 0 01-1-1V3zm1 0v12h8V3H6z" clipRule="evenodd" />
+                                                            <path fillRule="evenodd" d="M9 7a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm1 0v2h2V7H9z" clipRule="evenodd" />
+                                                        </svg>
+                                                        <span className="ml-2 flex-1 w-0 truncate">
+                                                            {link.originalname}
+                                                        </span>
+                                                    </div>
+                                                    <div className="ml-4 flex-shrink-0">
+                                                        <a href={link.url} className="font-medium text-indigo-600 hover:text-indigo-500">
+                                                            Download
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            ))}
                                         </ul>
                                         </dd>
                                     </div>

@@ -9,7 +9,7 @@ export default function TeacherAllocatedStudents(){
 
     useEffect(()=>{
 
-        axios.get(`https://inplant-backend.onrender.com/teacher/allocated-students/${teacherName}`)
+        axios.get(`http://localhost:9000/teacher/allocated-students/${teacherName}`)
         .then((res)=>{
             setContent(res.data.students)
         })

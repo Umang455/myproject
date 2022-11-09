@@ -8,7 +8,7 @@ export default function TeacherStudent(){
     
     useEffect(()=>{
 
-        axios.get('https://inplant-backend.onrender.com/teacher/students/list')
+        axios.get('http://localhost:9000/teacher/students/list')
             .then((res)=>{
                 setContent(res.data.students)
             })
