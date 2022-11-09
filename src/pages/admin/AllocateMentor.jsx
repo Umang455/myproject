@@ -57,18 +57,7 @@ export default function AllocateMentor(){
 
 
     const handleSubmit = () => {
-        // const url = `http://localhost:9000/admin/allocate-student/${document.getElementById('teacherUserName').value}?students=${[studentIdArr]}`;
-        // console.log(url);
         alert('Mentor allocated successfully')
-        // axios
-        // .post(url, inputs)
-        // .then((res) => {
-        //     alert(res.data.message);
-        // })
-        // .catch((err) => {
-        //     console.log('error : ',err);
-        //     alert(err.response.data.message);
-        // });
     };
 
     return(

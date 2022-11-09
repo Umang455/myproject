@@ -45,6 +45,7 @@ export default function App() {
     <>
     <Routes>
     <Route exact path="/admin/student-profile" element={[<Head/>,<AdminNavBar/>,<StudentProfile />]} />
+    <Route exact path="/teacher/student-profile" element={[<Head/>,<TeacherNavBar/>,<StudentProfile />]} />
       <Route exact path="/" element={[<Head />, <HeroNavBar />, <HeroSection />]} />
       <Route exact path="/about" element={[<Head />, <HeroNavBar />, <About />]} />
       <Route exact path="/contact" element={[<Head />, <HeroNavBar />, <Contact />]} />
