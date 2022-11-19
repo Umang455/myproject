@@ -99,8 +99,8 @@ export default function ViewStudents() {
                                         <tr key={element._id} className="text-center border-b text-sm hover:bg-green-300" onClick={() => { setModel(true); localStorage.setItem('studentInfo',JSON.stringify(element))}}>
                                             <td className="p-2 border-r">{element.name}</td>
                                             <td className="p-2 border-r">{element.enrollment_no}</td>
-                                            <td className="p-2 border-r">{element.mobile_no}</td>
-                                            <td className="p-2 border-r">{element.email}</td>
+                                            <td className="p-2 border-r">{element.mobile_no || "NA"}</td>
+                                            <td className="p-2 border-r">{element.email || "NA"}</td>
                                         </tr>
                                     )
                                 })
