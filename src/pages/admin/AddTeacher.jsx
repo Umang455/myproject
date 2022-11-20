@@ -4,6 +4,7 @@ import axios from 'axios';
 export default function AddTeacher(){
 
     const [inputs, setInputs] = useState({});
+    const [data, setData] = useState();
 
     const handleChanges = (e) => {
         const name = e.target.name;
@@ -11,7 +12,7 @@ export default function AddTeacher(){
         setInputs(values => ({ ...values, [name]: value }));
     };
     
-    const handleSubmit = (e) => {
+    const handleManSubmit = (e) => {
         e.preventDefault();
         axios
         .post("http://localhost:9000/admin/add-teacher", inputs)
@@ -25,13 +26,32 @@ export default function AddTeacher(){
         e.target.reset();
     };
 
+    const handleFileSubmit = (e) => {
+        e.preventDefault();
+        {console.log(data)}
+        let formData = new FormData();
+        formData.append('file', data);
+        const url = `http://localhost:9000/admin/add-teacher/excel`
+        console.log(url,formData);
+        axios.post(url,formData)
+        .then((result)=>{
+            alert(result.data.message)
+            console.log(result)
+        })
+        .catch((err)=>{
+            // alert(err.response.data.message||"Something went wrong")
+        })
+        e.target.reset();
+    }
+
+
     return(
         <>
         <p className="text-3xl p-10 font-semibold text-center">
              ADD TEACHER
         </p>
         <div className="p-6 m-auto bg-gray-100 rounded-md shadow-xl w-1/3">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleManSubmit}>
                 <div className="p-4">
                     <div className="p-2">
                         <label
@@ -84,6 +104,11 @@ export default function AddTeacher(){
                         ADD
                     </button>
                 </div>
+            </form>
+            <p className="text-2xl">Import Data from Excel</p>
+            <form onSubmit={handleFileSubmit} method="post" encType="multipart/form-data">
+                <input id="dropzone-file" onChange={(e)=>{setData(e.target.files[0])}} name="excel-file" type="file"/>
+                <button type="submit" className="bg-green-200 px-3 py-1 mt-4 rounded-lg border-2 border-gray-200">Upload</button>
             </form>
         </div>
         </>

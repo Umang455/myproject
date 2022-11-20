@@ -41,6 +41,7 @@ export default function AddStudent(){
         .catch((err)=>{
             // alert(err.response.data.message||"Something went wrong")
         })
+        e.target.reset();
     }
 
 
