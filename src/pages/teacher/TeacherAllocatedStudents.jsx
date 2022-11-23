@@ -2,10 +2,9 @@ import React, { useState,useEffect } from "react";
 import axios from 'axios';
 
 export default function TeacherAllocatedStudents(){
+    const [inputs, setInputs] = useState({});
     const [content,setContent] = useState(null);
     const teacherName = JSON.parse(localStorage.getItem('info')).name;
-    // console.log(teacherName);
-
 
     useEffect(()=>{
 
@@ -16,6 +15,20 @@ export default function TeacherAllocatedStudents(){
 
     },[])
     if(!content) return null;
+
+    const handleSubmit = (e) => {
+        axios
+        .post("http://localhost:9000/teacher/send-email", inputs)
+        .then((res) => {
+            alert(res.data.message);
+        }
+        )
+        .catch((err) => {
+            console.log('error : ',err);
+            alert(err.response.data.message);
+        }
+        );
+    };
 
     return(
         <>
@@ -46,6 +59,11 @@ export default function TeacherAllocatedStudents(){
                                 Email Id
                             </div>
                         </th>
+                        <th className="p-2 border-r cursor-pointer text-sm font-thin ">
+                            <div className="flex items-center justify-center">
+                                Action
+                            </div>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,7 +74,11 @@ export default function TeacherAllocatedStudents(){
                             <td className="p-2 border-r">{element.name}</td>
                             <td className="p-2 border-r">{element.enrollment_no}</td>
                             <td className="p-2 border-r">{element.mobile_no}</td>
-                            <td className="p-2 border-r">{element.email}</td>
+                            <td className="p-2 border-r">{element.organization_mentor_email}</td>
+                            <td className="p-2 border-r" onClick={() => {
+                                setInputs(element); 
+                                handleSubmit()
+                            }}><button>ASK ASSESSMENT</button></td>
                         </tr>
                         )
                     })}

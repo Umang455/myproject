@@ -87,11 +87,6 @@ export default function TeacherStudent() {
                                         Email Id
                                     </div>
                                 </th>
-                                <th className="p-2 border-r cursor-pointer text-sm font-thin ">
-                                    <div className="flex items-center justify-center">
-                                        Action
-                                    </div>
-                                </th>
                             </tr>
                         </thead>
                         <tbody id="table-body">
@@ -103,7 +98,6 @@ export default function TeacherStudent() {
                                             <td className="p-2 border-r">{element.enrollment_no}</td>
                                             <td className="p-2 border-r">{element.mobile_no}</td>
                                             <td className="p-2 border-r">{element.email}</td>
-                                            <td className="p-2 border-r"><button>Ask Assessment</button></td>
                                         </tr>
                                     )
                                 })

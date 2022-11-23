@@ -20,7 +20,6 @@ export default function ViewMentors(){
         const name = e.target.name;
         const value = e.target.value;
         setInputs(values => ({ ...values, [name]: value }));
-        console.log(inputs);
     };
 
     const handleSubmit = (e) => {
@@ -35,7 +34,7 @@ export default function ViewMentors(){
             console.log('error : ',err);
             alert(err.response.data.message);
         });
-    };1
+    };
 
 
     return(
