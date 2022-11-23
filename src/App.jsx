@@ -36,9 +36,7 @@ import TeacherChangePassword from "./pages/teacher/TeacherChangePassword"
 import StudentChangeInfo from "./pages/student/StudentChangeInfo"
 import StudentChangePassword from "./pages/student/StudentChangePassword"
 import StudentProfile from "./components/StudentProfile"
-
-
-
+import Form from "./components/Form"
 
 export default function App() {
   return (
@@ -76,6 +74,7 @@ export default function App() {
       <Route exact path="/student/upload-documents" element={[<Head />, <StudentNavBar />, <StudentUploadDocuments />]} />
       <Route exact path="/student/change-info" element={[<Head />, <StudentNavBar />, <StudentChangeInfo />]} />
       <Route exact path="/student/change-password" element={[<Head />, <StudentNavBar />, <StudentChangePassword />]} />
+      <Route exact path="/marks-assessment" element={[<Head />, <Form />]} />
     </Routes>
     </>
   )
