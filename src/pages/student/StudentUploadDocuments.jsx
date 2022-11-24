@@ -10,7 +10,7 @@ export default function StudentUploadDocuments() {
         e.preventDefault()
         let formData = new FormData()
         formData.append('file', data)
-      const url = `http://localhost:9000/student/file/upload/${localStorage.getItem('userId')}`
+      const url = `https://inplant-backend.onrender.com/student/file/upload/${localStorage.getItem('userId')}`
       console.log(localStorage.getItem('userId'));
         axios.post(url,formData)
         .then((result)=>{

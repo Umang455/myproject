@@ -15,7 +15,7 @@ export default function AddTeacher(){
     const handleManSubmit = (e) => {
         e.preventDefault();
         axios
-        .post("http://localhost:9000/admin/add-teacher", inputs)
+        .post("https://inplant-backend.onrender.com/admin/add-teacher", inputs)
         .then((res) => {
             alert(res.data.message);
         })
@@ -31,7 +31,7 @@ export default function AddTeacher(){
         {console.log(data)}
         let formData = new FormData();
         formData.append('file', data);
-        const url = `http://localhost:9000/admin/add-teacher/excel`
+        const url = `https://inplant-backend.onrender.com/admin/add-teacher/excel`
         console.log(url,formData);
         axios.post(url,formData)
         .then((result)=>{

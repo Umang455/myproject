@@ -9,7 +9,7 @@ export default function Form() {
         const studentName = window.location.href.split('?')[1];
         
         axios
-            .get(`http://localhost:9000/teacher/send-details/${studentName}`)
+            .get(`https://inplant-backend.onrender.com/teacher/send-details/${studentName}`)
             .then((res) => {
                 setContent(res.data.student);
             })
@@ -33,7 +33,7 @@ export default function Form() {
         const studentName = name.split('=')[1];
         e.preventDefault();
         axios
-            .post(`http://localhost:9000/teacher/upload-details/${studentName}`, inputs)
+            .post(`https://inplant-backend.onrender.com/teacher/upload-details/${studentName}`, inputs)
             .then((res) => {
                 console.log(res);
                 alert(res.data.message);

@@ -14,7 +14,7 @@ export default function ViewStudents() {
 
     useEffect(() => {
 
-        axios.get('http://localhost:9000/admin/students/list')
+        axios.get('https://inplant-backend.onrender.com/admin/students/list')
             .then((res) => {
                 setContent(res.data.students)
             })

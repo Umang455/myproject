@@ -8,7 +8,7 @@ export default function StudentDashboard() {
     const [links, setLinks] = React.useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:9000/admin/students/${JSON.parse(localStorage.getItem('info'))._id}/documents`).then((res) => {
+        axios.get(`https://inplant-backend.onrender.com/admin/students/${JSON.parse(localStorage.getItem('info'))._id}/documents`).then((res) => {
             // setContent(res.data);
             setLinks(res.data.documents);
             // setLinks(res.data.links);

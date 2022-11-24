@@ -14,7 +14,7 @@ export default function TeacherChangeInfo(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post(`http://localhost:9000/teacher/update/info/${localStorage.getItem("userId")}`, inputs)
+            .post(`https://inplant-backend.onrender.com/teacher/update/info/${localStorage.getItem("userId")}`, inputs)
             .then((res) => {
                 alert(res.data.message);
                 localStorage.setItem("info", JSON.stringify(res.data.result));

@@ -8,7 +8,7 @@ export default function TeacherAllocatedStudents(){
 
     useEffect(()=>{
 
-        axios.get(`http://localhost:9000/teacher/allocated-students/${teacherName}`)
+        axios.get(`https://inplant-backend.onrender.com/teacher/allocated-students/${teacherName}`)
         .then((res)=>{
             setContent(res.data.students)
         })
@@ -18,7 +18,7 @@ export default function TeacherAllocatedStudents(){
 
     const handleSubmit = (e) => {
         axios
-        .post("http://localhost:9000/teacher/send-email", inputs)
+        .post("https://inplant-backend.onrender.com/teacher/send-email", inputs)
         .then((res) => {
             alert(res.data.message);
         }
