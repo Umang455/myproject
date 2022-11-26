@@ -35,7 +35,7 @@ export default function StudentUploadDocuments() {
                             <p className="mb-2 text-sm text-gray-500 "><span className="font-semibold">Click to upload</span> or drag and drop</p>
                             <p className="text-xs text-gray-500">(ENROLLMENT_NO-<i>filename</i>).pdf</p>
                         </div>
-                        <input required id="dropzone-file" onChange={(e)=>{setData(e.target.files[0])}} name="file" type="file"/>
+                        <input required id="dropzone-file" onChange={(e)=>{setData(e.target.files[0])}} name="file" type="file" accept="application/pdf"/>
                         <button type="submit" className="bg-green-200 px-3 py-1 mt-4 rounded-lg border-2 border-gray-200">Upload</button>
                     </label>
                 </div>
