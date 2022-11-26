@@ -8,10 +8,8 @@ export default function StudentDashboard() {
     const [links, setLinks] = React.useState([]);
 
     useEffect(() => {
-        axios.get(`https://inplant-backend.onrender.com/admin/students/${JSON.parse(localStorage.getItem('info'))._id}/documents`).then((res) => {
-            // setContent(res.data);
+        axios.get(`http://localhost:9000/student/file/map/${JSON.parse(localStorage.getItem('info'))._id}`).then((res) => {
             setLinks(res.data.documents);
-            // setLinks(res.data.links);
         });
 
         localStorage.getItem('info')
@@ -19,6 +17,20 @@ export default function StudentDashboard() {
             setContent(JSON.parse(localStorage.getItem('info')));
         }
     }, [])
+
+    const handleDownload = (e) => {
+        
+        const element = document.createElement("a");
+        const file = new Blob(
+            [e.target.value],
+            {type: 'application/pdf'}
+        );
+        element.href = URL.createObjectURL(file);
+        element.download = "file.pdf";
+        document.body.appendChild(element);
+        element.click();
+    }
+    
 
     return (
         <>        
@@ -69,12 +81,27 @@ export default function StudentDashboard() {
                                                             <path fillRule="evenodd" d="M9 7a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm1 0v2h2V7H9z" clipRule="evenodd" />
                                                         </svg>
                                                         <span className="ml-2 flex-1 w-0 truncate">
-                                                            {link.originalname}
+                                                            {link.name}
                                                         </span>
                                                     </div>
                                                     <div className="ml-4 flex-shrink-0">
-                                                        <a href={link.url} className="font-medium text-indigo-600 hover:text-indigo-500">
+                                                        <button onClick={(e) => {
+                                                            const element = document.createElement("a");
+                                                            const file = new Blob(
+                                                                [e.target.value],
+                                                                {type: 'application/pdf'}
+                                                                );
+                                                                element.href = URL.createObjectURL(file);
+                                                                element.download = link.name;
+                                                                document.body.appendChild(element);
+                                                                element.click();
+                                                        }} id="downloadbtn" value="download" className="font-medium text-indigo-600 hover:text-indigo-500">
                                                             Download
+                                                        </button>
+                                                    </div>
+                                                    <div className="ml-4 flex-shrink-0">
+                                                        <a href={link.url} target="__blank" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                                            View
                                                         </a>
                                                     </div>
                                                 </li>
