@@ -5,6 +5,9 @@ import axios from "axios";
 export default function StudentChangeInfo(){
     const [inputs, setInputs] = React.useState("");
 
+    const [tempEmail, setTempEmail] = React.useState(JSON.parse(localStorage.getItem('info')).email);
+    const [tempMobileNo, setTempMobile] = React.useState(JSON.parse(localStorage.getItem('info')).mobile_no);
+
     const handleChanges = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -48,8 +51,12 @@ export default function StudentChangeInfo(){
                             <input
                             type="email"
                             name="email"
+                            value={tempEmail}
                             autoComplete="on"
-                            onChange={handleChanges}
+                            onChange={(e) => {
+                                setTempEmail(e.target.value);
+                                handleChanges(e);
+                            }}
                             className="block w-full px-4 py-2 mt-2 border"/>
                         </div>
                     </div>
@@ -63,24 +70,15 @@ export default function StudentChangeInfo(){
                             <input
                             type="number"
                             name="mobile_no"
+                            value={tempMobileNo}
                             autoComplete="on"
-                            onChange={handleChanges}
+                            onChange={(e) => {
+                                setTempMobile(e.target.value);
+                                handleChanges(e);
+                            }}
                             className="block w-full px-4 py-2 mt-2 border"/>
                         </div>
                     </div>
-                    {/* <div className="p-2">
-                        <label
-                        htmlFor="contact"
-                        className="block text-xl">
-                            About :
-                        </label>
-                        <div className="flex">
-                            <textarea
-                            name="about"
-                            onChange={handleChanges}
-                            className="block w-full px-4 py-2 mt-2 border"/>
-                        </div>
-                    </div> */}
                 </div>
                 
                 <div className="flex items-center justify-center">
