@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import axios from 'axios';
 
 export default function TeacherAllocatedStudents(){
-    const [inputs, setInputs] = useState({});
     const [content,setContent] = useState(null);
+    const bulkInputs = [];
     const teacherName = JSON.parse(localStorage.getItem('info')).name;
 
     useEffect(()=>{
@@ -17,9 +17,14 @@ export default function TeacherAllocatedStudents(){
     },[])
     if(!content) return null;
 
-    const handleIndustrySubmit = (e) => {
+    const handleIndustrySubmit = (name, faculty_mentor_name, organization_mentor_email) => {
+        const input = {
+            name: name,
+            faculty_mentor_name: faculty_mentor_name,
+            organization_mentor_email: organization_mentor_email
+        }
         axios
-        .post("http://localhost:9000/teacher/send-email", inputs)
+        .post("http://localhost:9000/teacher/send-email", input)
         .then((res) => {
             alert(res.data.message);
         }
@@ -31,6 +36,21 @@ export default function TeacherAllocatedStudents(){
         );
     };
 
+    const handleBulkMail = (e) => {
+        console.log(bulkInputs);
+        axios
+        .post("http://localhost:9000/teacher/send-bulk-email", bulkInputs)
+        .then((res) => {
+            alert(res.data.message);
+        }
+        )
+        .catch((err) => {
+            console.log('error : ',err);
+            alert(err.response.data.message);
+        });
+    }
+
+
     return(
         <>
         <p className="text-3xl p-10 font-semibold text-center">
@@ -38,7 +58,7 @@ export default function TeacherAllocatedStudents(){
         </p>
         <div className="p-6 m-auto w-1/2">
             <div className="items-center py-2 pl-[768px]">
-                <button className="bg-gray-900 p-1 text-gray-50 rounded">ASK ASSESSMENT</button>
+                <button onClick={handleBulkMail} className="bg-gray-900 p-1 text-gray-50 rounded">ASK ASSESSMENT</button>
             </div>
             <table className="w-full border">
                 <thead>
@@ -74,19 +94,19 @@ export default function TeacherAllocatedStudents(){
                     {
                     content.map((element)=>{
                         return (
-                        <tr className="text-center border-b text-sm ">
-                            <td className="p-2 border-r">{element.name}</td>
-                            <td className="p-2 border-r">{element.enrollment_no}</td>
-                            <td className="p-2 border-r">{element.mobile_no}</td>
-                            <td className="p-2 border-r">{element.organization_mentor_email}</td>
-                            <td className="p-2 border-r">
-                                <NavLink target={"__blank"} to={`/give-assessment/?name=${element.name}`}><button className="bg-gray-900 text-gray-50 p-1 mr-2 rounded">GIVE</button></NavLink>
-                            <button className="bg-gray-900 text-gray-50 p-1 ml-2 rounded" onClick={() => {
-                                setInputs(element); 
-                                handleIndustrySubmit()
-                            }}>ASK</button></td>
-                        </tr>
-                        )
+                            bulkInputs.push([element.name, element.faculty_mentor_name, element.organization_mentor_email]),
+                            <tr className="text-center border-b text-sm ">
+                                <td className="p-2 border-r">{element.name}</td>
+                                <td className="p-2 border-r">{element.enrollment_no}</td>
+                                <td className="p-2 border-r">{element.mobile_no}</td>
+                                <td className="p-2 border-r">{element.organization_mentor_email}</td>
+                                <td className="p-2 border-r">
+                                    <NavLink target={"__blank"} to={`/give-assessment/?name=${element.name}`}><button className="bg-gray-900 text-gray-50 p-1 mr-2 rounded">GIVE</button></NavLink>
+                                <button className="bg-gray-900 text-gray-50 p-1 ml-2 rounded" onClick={() =>{
+                                    handleIndustrySubmit(element.name, element.faculty_mentor_name, element.organization_mentor_email)
+                                }}>ASK</button></td>
+                            </tr>
+                            )
                     })}
                 </tbody>
             </table>
