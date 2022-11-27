@@ -37,7 +37,6 @@ export default function TeacherAllocatedStudents(){
     };
 
     const handleBulkMail = (e) => {
-        console.log(bulkInputs);
         axios
         .post("http://localhost:9000/teacher/send-bulk-email", bulkInputs)
         .then((res) => {
