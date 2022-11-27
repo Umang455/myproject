@@ -8,7 +8,7 @@ export default function ViewMentors(){
 
     useEffect(()=>{
         
-        axios.get('https://inplant-backend.onrender.com/admin/teachers/list')
+        axios.get('http://localhost:9000/admin/teachers/list')
         .then((res)=>{
             setTeacher(res.data.teachers)
         })
@@ -25,7 +25,7 @@ export default function ViewMentors(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-        .get(`https://inplant-backend.onrender.com/admin/allocated-student/${document.getElementById('teacherName').value}`)
+        .get(`http://localhost:9000/admin/allocated-student/${document.getElementById('teacherName').value}`)
         .then((res) => {
             setContent(res.data.students)
             console.log(content)

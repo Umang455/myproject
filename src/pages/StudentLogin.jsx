@@ -24,7 +24,7 @@ export default function StudentLogin() {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post("https://inplant-backend.onrender.com/student/login", inputs)
+            .post("http://localhost:9000/student/login", inputs)
             .then((res) => {
                 alert(res.data.message);
                 localStorage.setItem("authenticated", true);

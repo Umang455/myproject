@@ -15,7 +15,7 @@ export default function DeleteTeacher(){
         e.preventDefault();
         console.log("working");
         axios
-        .post("https://inplant-backend.onrender.com/admin/delete-teacher", inputs)
+        .post("http://localhost:9000/admin/delete-teacher", inputs)
         .then((res) => {
             alert(res.data.message);
         })

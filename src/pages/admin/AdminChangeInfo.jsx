@@ -14,7 +14,7 @@ export default function AdminChangeInfo(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post(`https://inplant-backend.onrender.com/admin/update/info/${localStorage.getItem("userId")}`, inputs)
+            .post(`http://localhost:9000/admin/update/info/${localStorage.getItem("userId")}`, inputs)
             .then((res) => {
                 alert(res.data.message);
                 localStorage.setItem("info", JSON.stringify(res.data.result));
