@@ -5,14 +5,19 @@ import { useState } from "react";
 export default function StudentUploadDocuments() {
 
     const [data,setData] = useState()
+    const token = JSON.parse(sessionStorage.getItem("token"))
 
     const handleSubmit = (e) => {
         e.preventDefault()
         let formData = new FormData()
         formData.append('file', data)
-      const url = `http://localhost:9000/student/file/upload/${localStorage.getItem('userId')}`
+      const url = `http://localhost:9000/student/file/upload`
       console.log(localStorage.getItem('userId'));
-        axios.post(url,formData)
+        axios.post(url,formData, {
+            headers: {
+                Authorization: token
+            }
+        })
         .then((result)=>{
             alert(result.data.message)
             console.log(result)
