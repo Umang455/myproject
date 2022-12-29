@@ -1,8 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.form{
+
+/* *{
+	background-color: #59436c;
+} */
+/* .form{
 	height: auto;
 	width: 600px;
 	margin: auto;
@@ -13,12 +19,9 @@ color: red;
 }
 .title-div{
 	height: 120px;
-	width: 600px;
 	background-color: #FDFEFE;
-	margin: 15px;
 	border-radius: 8px;
 	border-top: 8px solid #6703c4;
-	padding: 25px;
 }
 .name-div, .college-div, .gmail-div, .mobile-div{
 	height: 120px;
@@ -56,4 +59,4 @@ color: red;
 	position: absolute;
 	margin: 15px;
 	color: white;
-}
+} */
