@@ -41,7 +41,6 @@ export default function App() {
   return (
     <>
     <Token.Provider value={[token, setToken]}>
-    <section className="h-screen font-[Popins] md:bg-top bg-center">
     <Routes>
       {/* Hero Section */}
       <Route exact path="/" element={[<HeroNavBar />, <HeroSection />]} />
@@ -71,7 +70,6 @@ export default function App() {
       <Route exact path="/student/documents" element={[<StudentNavbar />, <StudentDocuments />]} />
 
     </Routes>
-    </section>
     </Token.Provider>
     </>
   )

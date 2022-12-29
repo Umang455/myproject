@@ -9,16 +9,16 @@ const NavLinks = () => {
     <>
       {links.map((link) => (
         <div>
-          <div className="px-3 text-left md:cursor-pointer group">
+          <div className="px-3 text-left md:cursor-pointer group  text-black md:text-gray-300 hover:md:text-purple-500">
             <h1
-              className="py-7 flex justify-between items-center md:pr-0 pr-5 group"
+              className="py-7 flex justify-between items-center md:pr-0 pr-5 group "
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
                 setSubHeading("");
               }}
             >
               {link.name}
-              <span className="text-xl md:hidden inline">
+              <span className="text-xl md:hidden inline ">
                 <ion-icon
                   name={`${
                     heading === link.name ? "chevron-up" : "chevron-down"
@@ -30,19 +30,19 @@ const NavLinks = () => {
               </span>
             </h1>
             {link.submenu && (
-              <div>
+              <div className="">
                 <div className="absolute top-20 hidden group-hover:md:block hover:md:block">
                   <div className="py-3">
                     <div
-                      className="w-4 h-4 left-3 absolute 
+                      className="w-4 h-4 left-3 absolute bg-purple-600
                     mt-1 bg-white rotate-45"
                     ></div>
                   </div>
-                  <div className="bg-white p-5 grid grid-cols-1 gap-10">
+                  <div className="bg-white p-5 grid grid-cols-1 bg-gray-900 gap-10">
                     {link.sublinks.map((mysublinks) => (
                       <div>
                         {mysublinks.sublink.map((slink) => (
-                          <li className="text-sm text-gray-600 my-2.5">
+                          <li className="text-sm hover:text-purple-600 text-white my-2.5">
                             <NavLink
                               to={slink.link}
                               className="hover:text-primary"

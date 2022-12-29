@@ -7,7 +7,7 @@ export default function HeroNavbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-900 md:text-white ">
+    <nav className="bg-gray-900 md:text-white z-10">
       <div className="flex items-center font-medium justify-around">
         <div className="z-50 p-5 md:w-auto w-full flex justify-between">
           <img src={newLogo} alt="logo" className="md:cursor-pointer h-12 bg-white " />
@@ -48,17 +48,17 @@ export default function HeroNavbar() {
             </a>
           </li>
         </ul>
-        <div className="md:block hidden">
-          <NavLink to="/login" className="bg-primary px-6 py-2 rounded-full">
-            <button className="bg-primary px-6 py-2 rounded-lg hover:bg-purple-700 hover:text-black border-2 border-purple-700">
+        {/* <div className=""> */}
+          <NavLink to="/login" className="md:block hidden bg-primary px-6 py-2 rounded-lg hover:bg-purple-700 hover:text-black border-2 border-purple-700">
+            <button className="">
               Log In
             </button>
             </NavLink>
-        </div>
+        {/* </div> */}
         
         {/* Mobile nav */}
         <ul
-        className={` 
+        className={` z-10
         md:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
         duration-500 ${open ? "left-0" : "left-[-100%]"}
         `}>

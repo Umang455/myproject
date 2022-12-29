@@ -7,17 +7,18 @@ export default function AdminNavbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-900">
+    <nav className="bg-gray-900 ">
       <div className="flex items-center font-medium justify-around">
         <div className="z-50 p-5 md:w-auto w-full flex justify-between">
           <img src={Logo} alt="logo" className="md:cursor-pointer h-12" />
-          <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
+          <div className={`${open ? "text-black":"text-white"} text-3xl md:hidden`} onClick={() => setOpen(!open)}>
             <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
           </div>
         </div>
         <ul className="md:flex hidden uppercase items-center gap-8 font-[Poppins]">
-        <NavLink end to="/admin/dashboard" style={({isActive}) => ({
-          backgroundColor: isActive ? '#1f2937' : '#111827',
+        <NavLink end to="/admin/dashboard" className="hover:text-purple-500 rounded-full" style={({isActive}) => ({
+          backgroundColor: isActive ? '#d6bcfa' : '#101527',
+          color : isActive ? 'black' : '#fff'
           })}>
           <li className='block w-32 py-2 rounded-4 font-medium text-center'>
             HOME
@@ -27,7 +28,7 @@ export default function AdminNavbar() {
 
         </ul>
         <div className="md:block hidden">
-            <button className="bg-primary text-white  px-6 py-2 rounded-full">
+            <button className="bg-primary md:hover:bg-purple-500 border-purple-500 md:border-2 text-white  px-6 py-2 rounded-full ">
               Log Out
             </button>
         </div>
@@ -45,7 +46,7 @@ export default function AdminNavbar() {
           </li>
           <AdminNavLink />
           <div className="py-5">
-            <button className="bg-black text-white  px-6 py-2 rounded-full">
+            <button className="bg-purple-500 text-white  px-6 py-2 rounded-full">
               Log Out
             </button>
           </div>
