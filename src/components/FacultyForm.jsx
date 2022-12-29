@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 export default function FacultyForm() {
-    const [content, setContent] = useState([]);
+    // const [content, setContent] = useState([]);
+    const [content, setContent] = useState();
     const [inputs, setInputs] = useState({});
 
     useEffect(() => {
@@ -12,6 +13,7 @@ export default function FacultyForm() {
             .get(`http://localhost:9000/teacher/send-details/${studentName}`)
             .then((res) => {
                 setContent(res.data.student);
+                setContent({name:'deep'})
             })
             .catch((err) => {
                 console.log('error : ', err);
@@ -45,8 +47,8 @@ export default function FacultyForm() {
     return (
         <>
         <form onSubmit={handleSubmit}>
-            <div className="form">
-                <div className="title-div">
+            <div className="w-auto form">
+                <div className="w-[90vw] title-div">
                     <h1>Industry Mentor</h1>
                     <p>Marks Evaluation for Student</p>
                     {
