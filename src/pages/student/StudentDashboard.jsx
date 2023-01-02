@@ -9,7 +9,7 @@ export default function StudentDashboard() {
 
   useEffect(() => {
     axios
-    .get("https://inplantportal.onrender.com/student", {
+    .get("https://backend-production-3031.up.railway.app/student", {
       headers: {
         Authorization: "Bearer " + token
       }

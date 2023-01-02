@@ -11,7 +11,7 @@ export default function AllocateMentor(){
   const navigate = useNavigate()
   
   useEffect(()=>{
-    axios.get('https://inplantportal.onrender.com/admin/unallocated-students', {
+    axios.get('https://backend-production-3031.up.railway.app/admin/unallocated-students', {
       headers: {
         Authorization: "Bearer " + token
       }
@@ -23,7 +23,7 @@ export default function AllocateMentor(){
       navigate("/login");
     })
     
-    axios.get('https://inplantportal.onrender.com/admin/teachers/list', {
+    axios.get('https://backend-production-3031.up.railway.app/admin/teachers/list', {
       headers: {
         Authorization: "Bearer " + token
       }
@@ -65,7 +65,7 @@ export default function AllocateMentor(){
     }
     else {
       axios
-      .post(`https://inplantportal.onrender.com/admin/allocate-students/${teacherName}`, students, {
+      .post(`https://backend-production-3031.up.railway.app/admin/allocate-students/${teacherName}`, students, {
         headers: {
           Authorization: "Bearer " + token
         }

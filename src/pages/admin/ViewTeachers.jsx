@@ -12,7 +12,7 @@ export default function ViewTeachers(){
 
   useEffect(()=>{
     axios
-    .get('https://inplantportal.onrender.com/admin/teachers/list', {
+    .get('https://backend-production-3031.up.railway.app/admin/teachers/list', {
       headers: {
         Authorization: "Bearer " + token
       }

@@ -9,7 +9,7 @@ export default function AdminDashboard() {
 
     useEffect(() => {
       axios
-      .get("https://inplantportal.onrender.com/teacher", {
+      .get("https://backend-production-3031.up.railway.app/teacher", {
         headers: {
           Authorization: "Bearer " + token
         }

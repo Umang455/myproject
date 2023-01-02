@@ -10,7 +10,7 @@ export default function TeacherChangePassword(){
     useEffect(() => {
         return () => {
           axios
-          .get("https://inplantportal.onrender.com/teacher", {
+          .get("https://backend-production-3031.up.railway.app/teacher", {
             headers: {
               Authorization: "Bearer " + token
             }
@@ -33,7 +33,7 @@ export default function TeacherChangePassword(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post(`https://inplantportal.onrender.com/teacher/update/password`, inputs, {
+            .post(`https://backend-production-3031.up.railway.app/teacher/update/password`, inputs, {
                 headers: {
                     Authorization: "Bearer " + token
                 }

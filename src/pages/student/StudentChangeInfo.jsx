@@ -10,7 +10,7 @@ export default function StudentChangeInfo(){
     useEffect(() => {
         return () => {
           axios
-          .get("https://inplantportal.onrender.com/student", {
+          .get("https://backend-production-3031.up.railway.app/student", {
             headers: {
               Authorization: "Bearer " + token
             }
@@ -34,7 +34,7 @@ export default function StudentChangeInfo(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post(`https://inplantportal.onrender.com/student/update/info`, inputs, {
+            .post(`https://backend-production-3031.up.railway.app/student/update/info`, inputs, {
                 headers: {
                     Authorization: "Bearer " + token
                 }

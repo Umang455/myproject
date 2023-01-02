@@ -12,7 +12,7 @@ export default function DeleteStudent(){
   useEffect(() => {
     return () => {
       axios
-      .get("https://inplantportal.onrender.com/admin", {
+      .get("https://backend-production-3031.up.railway.app/admin", {
         headers: {
           Authorization: "Bearer " + token
         }
@@ -36,7 +36,7 @@ export default function DeleteStudent(){
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-    .post("https://inplantportal.onrender.com/admin/delete-student", inputs, {
+    .post("https://backend-production-3031.up.railway.app/admin/delete-student", inputs, {
       headers: {
         Authorization: "Bearer " + token
       }

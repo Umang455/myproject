@@ -10,7 +10,7 @@ export default function AdminChangeInfo(){
     useEffect(() => {
         return () => {
           axios
-          .get("https://inplantportal.onrender.com/admin", {
+          .get("https://backend-production-3031.up.railway.app/admin", {
             headers: {
               Authorization: "Bearer " + token
             }
@@ -34,7 +34,7 @@ export default function AdminChangeInfo(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post(`https://inplantportal.onrender.com/admin/update/info`, inputs, {
+            .post(`https://backend-production-3031.up.railway.app/admin/update/info`, inputs, {
                 headers: {
                     Authorization: "Bearer " + token
                 }

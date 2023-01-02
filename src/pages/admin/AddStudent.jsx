@@ -11,7 +11,7 @@ export default function AddStudent(){
   useEffect(() => {
     return () => {
       axios
-      .get("https://inplantportal.onrender.com/admin", {
+      .get("https://backend-production-3031.up.railway.app/admin", {
         headers: {
           Authorization: "Bearer " + token
         }
@@ -34,7 +34,7 @@ export default function AddStudent(){
   const handleManSubmit = (e) => {
     e.preventDefault();
     axios
-    .post("https://inplantportal.onrender.com/admin/add-student", inputs, {
+    .post("https://backend-production-3031.up.railway.app/admin/add-student", inputs, {
       headers: {
         Authorization: "Bearer " + token
       }
@@ -54,7 +54,7 @@ export default function AddStudent(){
     {console.log(data)}
     let formData = new FormData();
     formData.append('file', data);
-    const url = `https://inplantportal.onrender.com/admin/add-student/excel`
+    const url = `https://backend-production-3031.up.railway.app/admin/add-student/excel`
     // console.log(url,formData);
     axios.post(url,formData, {
       headers: {

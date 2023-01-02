@@ -10,7 +10,7 @@ export default function StudentUploadDocuments() {
     useEffect(() => {
         return () => {
           axios
-          .get("https://inplantportal.onrender.com/student", {
+          .get("https://backend-production-3031.up.railway.app/student", {
             headers: {
               Authorization: "Bearer " + token
             }
@@ -28,7 +28,7 @@ export default function StudentUploadDocuments() {
         e.preventDefault()
         let formData = new FormData()
         formData.append('file', data)
-      const url = `https://inplantportal.onrender.com/student/file/upload`
+      const url = `https://backend-production-3031.up.railway.app/student/file/upload`
         axios.post(url,formData, {
             headers: {
                 Authorization: "Bearer " + token

@@ -10,7 +10,7 @@ export default function TeacherChangeInfo(){
     useEffect(() => {
         return () => {
           axios
-          .get("https://inplantportal.onrender.com/teacher", {
+          .get("https://backend-production-3031.up.railway.app/teacher", {
             headers: {
               Authorization: "Bearer " + token
             }
@@ -34,7 +34,7 @@ export default function TeacherChangeInfo(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post(`https://inplantportal.onrender.com/teacher/update/info`, inputs, {
+            .post(`https://backend-production-3031.up.railway.app/teacher/update/info`, inputs, {
                 headers: {
                     Authorization: "Bearer " + token
                 }

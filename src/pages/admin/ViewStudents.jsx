@@ -11,7 +11,7 @@ export default function ViewStudents(){
   const navigate = useNavigate()
   
   useEffect(()=>{
-    axios.get('https://inplantportal.onrender.com/admin/students/list', {
+    axios.get('https://backend-production-3031.up.railway.app/admin/students/list', {
       headers: {
         Authorization: "Bearer " + token
       }

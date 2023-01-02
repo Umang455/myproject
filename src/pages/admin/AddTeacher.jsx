@@ -11,7 +11,7 @@ export default function AddTeacher(){
   useEffect(() => {
     return () => {
       axios
-      .get("https://inplantportal.onrender.com/admin", {
+      .get("https://backend-production-3031.up.railway.app/admin", {
         headers: {
           Authorization: "Bearer " + token
         }
@@ -34,7 +34,7 @@ export default function AddTeacher(){
   const handleManSubmit = (e) => {
     e.preventDefault();
     axios
-    .post("https://inplantportal.onrender.com/admin/add-teacher", inputs, {
+    .post("https://backend-production-3031.up.railway.app/admin/add-teacher", inputs, {
       headers: {
         Authorization: "Bearer " + token
       }
@@ -54,7 +54,7 @@ export default function AddTeacher(){
     {console.log(data)}
     let formData = new FormData();
     formData.append('file', data);
-    const url = `https://inplantportal.onrender.com/admin/add-teacher/excel`
+    const url = `https://backend-production-3031.up.railway.app/admin/add-teacher/excel`
     // console.log(url,formData);
     axios.post(url,formData, {
       headers: {

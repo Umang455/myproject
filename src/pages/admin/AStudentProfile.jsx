@@ -11,7 +11,7 @@ export default function AStudentProfile() {
 
   useEffect(() => {
     axios
-    .get("https://inplantportal.onrender.com/admin", {
+    .get("https://backend-production-3031.up.railway.app/admin", {
       headers: {
         Authorization: "Bearer " + token
       }
@@ -24,7 +24,7 @@ export default function AStudentProfile() {
     })
 
     axios
-    .get(`https://inplantportal.onrender.com/admin/student-info/${studentName}`, {
+    .get(`https://backend-production-3031.up.railway.app/admin/student-info/${studentName}`, {
       headers: {
           Authorization: "Bearer " + token
       }

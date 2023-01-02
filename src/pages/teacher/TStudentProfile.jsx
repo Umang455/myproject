@@ -11,7 +11,7 @@ export default function TStudentProfile() {
 
   useEffect(() => {
     axios
-    .get("https://inplantportal.onrender.com/teacher", {
+    .get("https://backend-production-3031.up.railway.app/teacher", {
       headers: {
         Authorization: "Bearer " + token
       }
@@ -24,7 +24,7 @@ export default function TStudentProfile() {
     })
 
     axios
-    .get(`https://inplantportal.onrender.com/teacher/student-info/${studentName}`, {
+    .get(`https://backend-production-3031.up.railway.app/teacher/student-info/${studentName}`, {
       headers: {
           Authorization: "Bearer " + token
       }
@@ -46,7 +46,7 @@ export default function TStudentProfile() {
     const input = {
       fileId: fileId
     }
-    axios.post("https://inplantportal.onrender.com/student/file/delete", input, {
+    axios.post("https://backend-production-3031.up.railway.app/student/file/delete", input, {
       headers: {
         Authorization: token
       }

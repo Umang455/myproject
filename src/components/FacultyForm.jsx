@@ -11,7 +11,7 @@ export default function FacultyForm() {
         const studentName = name.split('=')[1]
 
         axios
-        .get(`https://inplantportal.onrender.com/teacher/send-details/${studentName}`)
+        .get(`https://backend-production-3031.up.railway.app/teacher/send-details/${studentName}`)
         .then((res) => {
             setContent(res.data.student)
         })
@@ -34,7 +34,7 @@ export default function FacultyForm() {
         const studentName = name.split('=')[1];
         e.preventDefault();
         axios
-            .post(`https://inplantportal.onrender.com/teacher/upload-faculty-marks/${studentName}`, inputs, {
+            .post(`https://backend-production-3031.up.railway.app/teacher/upload-faculty-marks/${studentName}`, inputs, {
                 headers: {
                     Authorization: "Bearer " + token
                 }
