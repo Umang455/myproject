@@ -17,6 +17,7 @@ export default function AdminDashboard() {
       })
       .then((res) => {
         setContent(JSON.parse(sessionStorage.getItem("info")))
+        console.log(content)
       })
       .catch((err) => {
         navigate("/login");
