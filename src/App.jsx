@@ -21,18 +21,28 @@ import DeleteStudent from "./pages/admin/DeleteStudent"
 import ViewStudents from "./pages/admin/ViewStudents"
 import AllocateMentor from "./pages/admin/AllocateMentor"
 import ViewMentors from "./pages/admin/ViewMentors"
+import AdminChangeInfo from "./pages/admin/AdminChangeInfo"
+import AdminChangePassword from "./pages/admin/AdminChangePassword"
+import AStudentProfile from "./pages/admin/AStudentProfile"
 
 // teacher components
 import TeacherNavbar from "./components/Navbar/TeacherNavBar/TeacherNavbar"
 import TeacherDashboard from "./pages/teacher/TeacherDashboard"
 import TeacherStudent from "./pages/teacher/TeacherStudent"
 import TeacherAllocatedStudents from "./pages/teacher/TeacherAllocatedStudents"
+import TStudentProfile from "./pages/teacher/TStudentProfile"
 
 // student components
 import StudentNavbar from "./components/Navbar/StudentNavBar/StudentNavBar"
 import StudentDashboard from "./pages/student/StudentDashboard"
 import StudentUploadDocuments from "./pages/student/StudentUploadDocuments"
 import StudentDocuments from "./pages/student/StudentDocuments"
+import TeacherChangeInfo from "./pages/teacher/TeacherChangeInfo"
+import TeacherChangePassword from "./pages/teacher/TeacherChangePassword"
+import IndustryForm from "./components/IndustryForm"
+import FacultyForm from "./components/FacultyForm"
+import StudentChangeInfo from "./pages/student/StudentChangeInfo"
+import StudentChangePassword from "./pages/student/StudentChangePassword"
 
 export default function App() {
 
@@ -40,6 +50,7 @@ export default function App() {
 
   return (
     <>
+    <div className="font-serif">
     <Token.Provider value={[token, setToken]}>
     <Routes>
       {/* Hero Section */}
@@ -58,19 +69,32 @@ export default function App() {
       <Route exact path="/admin/view-students" element={[<AdminNavbar />, <ViewStudents />]} />
       <Route exact path="/admin/allocate-mentors" element={[<AdminNavbar />, <AllocateMentor />]} />
       <Route exact path="/admin/view-mentors" element={[<AdminNavbar />, <ViewMentors />]} />
+      <Route exact path="/admin/update-info" element={[<AdminNavbar />, <AdminChangeInfo />]} />
+      <Route exact path="/admin/change-password" element={[<AdminNavbar />, <AdminChangePassword />]} />
+      <Route exact path="/admin/student-profile" element={[<AdminNavbar />, <AStudentProfile />]} />
 
       {/* Teacher Section */}
       <Route exact path="/teacher/dashboard" element={[<TeacherNavbar />, <TeacherDashboard />]} />
       <Route exact path="/teacher/students" element={[<TeacherNavbar />, <TeacherStudent />]} />
       <Route exact path="/teacher/allocated-students" element={[<TeacherNavbar />, <TeacherAllocatedStudents />]} />
+      <Route exact path="/teacher/update-info" element={[<TeacherNavbar />, <TeacherChangeInfo />]} />
+      <Route exact path="/teacher/change-password" element={[<TeacherNavbar />, <TeacherChangePassword />]} />
+      <Route exact path="/teacher/student-profile" element={[<TeacherNavbar />, <TStudentProfile />]} />
 
       {/* Student Section */}
       <Route exact path="/student/dashboard" element={[<StudentNavbar />, <StudentDashboard />]} />
       <Route exact path="/student/upload-documents" element={[<StudentNavbar />, <StudentUploadDocuments />]} />
       <Route exact path="/student/documents" element={[<StudentNavbar />, <StudentDocuments />]} />
+      <Route exact path="/student/update-info" element={[<StudentNavbar />, <StudentChangeInfo />]} />
+      <Route exact path="/student/change-password" element={[<StudentNavbar />, <StudentChangePassword />]} />
+
+      {/* Form Section */}
+      <Route exact path="/ask-assessment" element={<IndustryForm />} />
+      <Route exact path="/give-assessment" element={<FacultyForm />} />
 
     </Routes>
     </Token.Provider>
+    </div>
     </>
   )
 }
