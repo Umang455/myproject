@@ -8,7 +8,6 @@ export default function TStudentProfile() {
   const token = JSON.parse(sessionStorage.getItem("token"))
   const studentName = sessionStorage.getItem("studentInfo")
   const navigate = useNavigate()
-  console.log(studentName);
 
   useEffect(() => {
     axios
@@ -34,6 +33,7 @@ export default function TStudentProfile() {
       if(res.data.documents) {
           setContent(res.data.student)
           setFiles(res.data.documents)
+          console.log(content);
       }
       else {
           setContent(res.data.student)
