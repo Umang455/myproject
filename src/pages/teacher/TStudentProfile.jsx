@@ -56,7 +56,7 @@ export default function TStudentProfile() {
         <div className="rounded-t bg-transparent md:text-white md:bg-gray-900 mb-0 px-6 py-6">
           <div className="text-center  flex justify-between">
             <button onClick={() => {
-                navigate("/admin/view-students")
+                navigate("/teacher/view-students")
             }} className="text-xl md:text-purple-500 font-bold">Back</button>
           </div>
             <hr className="mt-6 border-b-1 border-black md:border-gray-300" />
