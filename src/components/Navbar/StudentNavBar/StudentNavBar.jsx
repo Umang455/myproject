@@ -1,48 +1,60 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../../assets/itp-logo.png";
+import StudentNavLinks from "./StudentNavLinks"
 
 export default function StudentNavbar() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate()
+
+  const handleLogOut = (e) => {
+    sessionStorage.removeItem("token")
+    sessionStorage.removeItem("info")
+    alert("Logout Successfull!")
+    navigate("/login")
+  }
 
   return (
     <nav className="bg-gray-900">
       <div className="flex items-center font-medium justify-around">
         <div className="z-50 p-5 md:w-auto w-full flex justify-between">
           <img src={Logo} alt="logo" className="md:cursor-pointer h-12" />
-          <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
+          <div className={`${open ? "text-black":"text-white"} text-3xl md:hidden`} onClick={() => setOpen(!open)}>
             <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
           </div>
         </div>
-        <ul className="md:flex hidden uppercase items-center gap-8 font-[Poppins]">
-        <NavLink end to="/student/dashboard" style={({isActive}) => ({
-          backgroundColor: isActive ? '#1f2937' : '#111827',
+        <ul className="md:flex hidden uppercase items-center gap-8">
+        <NavLink end to="/student/dashboard" className="hover:text-purple-500 rounded-full" style={({isActive}) => ({
+          backgroundColor: isActive ? '#d6bcfa' : '#111827',
+          color : isActive ? 'black' : '#fff'
           })}>
           <li className='block w-32 py-2 rounded-4 font-medium text-center'>
-            Dashboard
+            DASHBOARD
           </li>
         </NavLink>
-        <NavLink end to="/student/upload-documents" style={({isActive}) => ({
-          backgroundColor: isActive ? '#1f2937' : '#111827',
+        <NavLink end to="/student/upload-documents" className="hover:text-purple-500 rounded-full" style={({isActive}) => ({
+          backgroundColor: isActive ? '#d6bcfa' : '#111827',
+          color : isActive ? 'black' : '#fff'
           })}>
-          <li className='block w-32 py-2 rounded-md font-medium text-center'>
-            Upload Documents
+          <li className='block w-32 py-2 rounded-4 font-medium text-center'>
+            UPLOAD DOCUMENTS
           </li>
         </NavLink>
-        <NavLink to="/student/documents" style={({isActive}) => ({
-          backgroundColor: isActive ? '#1f2937' : '#111827',
+        <NavLink end to="/student/documents" className="hover:text-purple-500 rounded-full" style={({isActive}) => ({
+          backgroundColor: isActive ? '#d6bcfa' : '#111827',
+          color : isActive ? 'black' : '#fff'
           })}>
-            <li className='block w-32 py-2 rounded-md font-medium text-center'>
-              Documents
-            </li>
-          </NavLink>
+          <li className='block w-32 py-2 rounded-4 font-medium text-center'>
+            DOCUMENTS
+          </li>
+        </NavLink>
+        <StudentNavLinks />
+
         </ul>
         <div className="md:block hidden">
-          <NavLink to="/login" className="bg-primary text-white  px-6 py-2 rounded-full">
-            <button className="bg-primary text-white  px-6 py-2 rounded-full">
-              Log Out
-            </button>
-            </NavLink>
+          <button onClick={handleLogOut} className="bg-primary md:hover:bg-purple-500 border-purple-500 md:border-2 text-white  px-6 py-2 rounded-full ">
+            Log Out
+          </button>
         </div>
         
         {/* Mobile nav */}
@@ -51,37 +63,22 @@ export default function StudentNavbar() {
         md:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
         duration-500 ${open ? "left-0" : "left-[-100%]"}
         `}>
-        <li>
+          <li>
             <NavLink to="/" className="py-7 px-3 inline-block">
-              Home
+              Dashboard
+            </NavLink>
+            <NavLink to="/" className="py-7 px-3 inline-block">
+              Upload Documents
+            </NavLink>
+            <NavLink to="/" className="py-7 px-3 inline-block">
+              Documents
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/about" className="py-7 px-3 inline-block">
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact" className="py-7 px-3 inline-block">
-              Contact
-            </NavLink>
-          </li>
-          <li>
-            <a href="https://www.gpmumbai.ac.in/" target="_blank" className="py-7 px-3 inline-block">
-              GPMumbai
-            </a>
-          </li>
-          <li>
-            <a hreg="http://192.169.226.38/~vtplapps/gpm/gpm_w22/index.php" target="__blank" className="py-7 px-3 inline-block">
-              MIS Portal
-            </a>
-          </li>
+          <StudentNavLinks />
           <div className="py-5">
-          <NavLink to="/login">
-            <button className="bg-black text-white  px-6 py-2 rounded-full">
+            <button onClick={handleLogOut} className="bg-purple-500 text-white  px-6 py-2 rounded-full">
               Log Out
             </button>
-            </NavLink>
           </div>
         </ul>
       </div>
