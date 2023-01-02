@@ -37,4 +37,16 @@ export const links = [
       }
     ]
   },
+  {
+    name: "Settings",
+    submenu: true,
+    sublinks: [
+      {
+        sublink: [
+          { name: "Update Information", link: "/admin/update-info" },
+          { name: "Change Passowrd", link: "/admin/change-password" },
+        ]
+      }
+    ]
+  }
 ];
