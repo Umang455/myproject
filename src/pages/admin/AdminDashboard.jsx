@@ -1,25 +1,26 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom"; 
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function AdminDashboard() {
     const [content, setContent] = useState({});
-    const [authenticated, setauthenticated] = useState(null);
+    const token = JSON.parse(sessionStorage.getItem("token"))
+    const navigate = useNavigate()
 
     useEffect(() => {
-        const loggedInUser = localStorage.getItem("authenticated");
-        if (loggedInUser) {
-            setauthenticated(loggedInUser);
+      axios
+      .get("https://inplantportal.onrender.com/teacher", {
+        headers: {
+          Authorization: "Bearer " + token
         }
-        if(localStorage.getItem("info") != ""){
-            localStorage.getItem('info')
-            setContent(JSON.parse(localStorage.getItem('info')));
-        }
+      })
+      .then((res) => {
+        setContent(JSON.parse(sessionStorage.getItem("info")))
+      })
+      .catch((err) => {
+        navigate("/login");
+      })
     }, []);
-
-    if (authenticated == "false") {
-        return <Navigate replace to="/admin/login" />;
-    } else {
         return (
             <>
             <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
@@ -56,5 +57,4 @@ export default function AdminDashboard() {
                 </div>
             </>
         );
-    }
 };
