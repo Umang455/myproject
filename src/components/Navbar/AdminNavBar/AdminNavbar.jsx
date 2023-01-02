@@ -29,7 +29,7 @@ export default function AdminNavbar() {
           color : isActive ? 'black' : '#fff'
           })}>
           <li className='block w-32 py-2 rounded-4 font-medium text-center'>
-            HOME
+            DASHBOARD
           </li>
         </NavLink>
         <AdminNavLink />
@@ -49,7 +49,7 @@ export default function AdminNavbar() {
         `}>
         <li>
             <NavLink to="/" className="py-7 px-3 inline-block">
-              Home
+              Dashboard
             </NavLink>
           </li>
           <AdminNavLink />

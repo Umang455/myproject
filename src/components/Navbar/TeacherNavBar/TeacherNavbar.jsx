@@ -65,7 +65,7 @@ export default function TeacherNavbar() {
         `}>
           <li>
             <NavLink to="/teacher/dashboard" className="py-7 px-3 inline-block">
-              Home
+              Dashboard
             </NavLink>
           </li>
           <li>
