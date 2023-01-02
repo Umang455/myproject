@@ -125,7 +125,11 @@ export default function AllocateMentor(){
           content.map((element) => {
             bulkInputs.push(element.name)
             return(
-              <tr id="tr" className="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
+              <tr id="tr" 
+              onClick={() => {
+                sessionStorage.setItem("studentInfo", element.name)
+                navigate("/teacher/student-profile")
+                }}className="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
                   <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                     <span className="inline-block w-1/3 md:hidden font-bold">
                       Enrollment No

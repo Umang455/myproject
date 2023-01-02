@@ -26,7 +26,7 @@ export default function TStudentProfile() {
       })
 
       axios
-      .get(`http://localhost:9000/admin/student-info/${studentName}`, {
+      .get(`http://localhost:9000/teacher/student-info/${studentName}`, {
         headers: {
             Authorization: "Bearer " + token
         }
