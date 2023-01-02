@@ -59,33 +59,37 @@ export default function AllocateMentor(){
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-    .post(`https://inplantportal.onrender.com/admin/allocate-students/${teacherName}`, students, {
-      headers: {
-        Authorization: "Bearer " + token
-      }
-    })
-    .then((res) => {
-      alert(res.data.message);
-      window.location.reload()
-    })
-    .catch((err) => {
-      // console.log('error : ',err);
-      alert(err.response.data.message);
-    });
-    e.target.reset();
+    
+    if(teacherName == "default") {
+      return
+    }
+    else {
+      axios
+      .post(`https://inplantportal.onrender.com/admin/allocate-students/${teacherName}`, students, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      })
+      .then((res) => {
+        alert(res.data.message );
+        window.location.reload()
+      })
+      .catch((err) => {
+        // console.log('error : ',err);
+        alert(err.response.data.message || "Select Teacher");
+      });
+      e.target.reset();
+    }
   };
-
-  console.log(teacherName);
   
   return(
   <>
-      <section className="bg-gradient-to-r from-indigo-300 to-red-200 md:h-[55.5rem] md:px-[10rem] md:py-[4rem] md:w-auto">
+  <section className="bg-gradient-to-r from-indigo-300 to-red-200 md:h-[55.5rem] md:px-[10rem] md:py-[4rem] md:w-auto">
     <div className="text-sm flex justify-center ">
-      <select id="teacherUserName" onChange={(e) => {
+      <select required id="teacherUserName" onChange={(e) => {
         setTeacherName(e.target.value)
       }} className="text-sm text-gray-800 px-4 py-3 rounded bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400">
-        <option>Select Teacher</option>
+        <option value="default">Select Teacher</option>
         {
           teacher.map((element)=>{
             return(

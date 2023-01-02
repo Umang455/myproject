@@ -91,6 +91,7 @@ export default function Login() {
                       name="username"
                       placeholder="Enter Username"
                       onChange={handleChanges}
+                      required
                       className=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
                     />
                     <input
@@ -98,6 +99,7 @@ export default function Login() {
                       name="password"
                       placeholder="Enter Password"
                       onChange={handleChanges}
+                      required
                       className="text-sm text-gray-800 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400"
                     />
                     {/* <div className="flex items-center justify-between">

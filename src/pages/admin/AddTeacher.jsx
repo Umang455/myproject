@@ -99,6 +99,7 @@ export default function AddTeacher(){
                   name="username"
                   onChange={handleChanges}
                   type="text"
+                  required
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                 </div>
               </div>
@@ -113,6 +114,7 @@ export default function AddTeacher(){
                   name="name"
                   onChange={handleChanges}
                   type="text"
+                  required
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                 </div>
               </div>
@@ -126,7 +128,8 @@ export default function AddTeacher(){
                   <input
                   name="email"
                   onChange={handleChanges}
-                  type="text"
+                  type="email"
+                  required
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                 </div>
               </div>
@@ -141,6 +144,7 @@ export default function AddTeacher(){
                   name="mobile_no"
                   onChange={handleChanges}
                   type="number"
+                  required
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                 </div>
               </div>
@@ -155,6 +159,7 @@ export default function AddTeacher(){
                   name="password"
                   onChange={handleChanges}
                   type="text"
+                  required
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                 </div>
               </div>

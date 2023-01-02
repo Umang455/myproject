@@ -80,6 +80,7 @@ export default function TeacherChangePassword(){
                                             name="oldPassword"
                                             onChange={handleChanges}
                                             type="text"
+                                            required
                                             className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                                         </div>
                                     </div>
@@ -94,6 +95,7 @@ export default function TeacherChangePassword(){
                                             name="newPassword"
                                             onChange={handleChanges}
                                             type="text"
+                                            required
                                             className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                                         </div>
                                     </div>
@@ -108,6 +110,7 @@ export default function TeacherChangePassword(){
                                             name="confirmPassword"
                                             onChange={handleChanges}
                                             type="text"
+                                            required
                                             className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                                         </div>
                                     </div>

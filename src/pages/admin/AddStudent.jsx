@@ -101,6 +101,7 @@ export default function AddStudent(){
                     name="enrollment_no"
                     onChange={handleChanges}
                     type="text"
+                    required
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                   </div>
                 </div>
@@ -115,6 +116,7 @@ export default function AddStudent(){
                     name="name"
                     onChange={handleChanges}
                     type="text"
+                    required
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                   </div>
                 </div>
@@ -129,6 +131,7 @@ export default function AddStudent(){
                     name="email"
                     onChange={handleChanges}
                     type="text"
+                    required
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                   </div>
                 </div>
@@ -143,6 +146,7 @@ export default function AddStudent(){
                     name="mobile_no"
                     onChange={handleChanges}
                     type="number"
+                    required
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                   </div>
                 </div>
@@ -157,6 +161,7 @@ export default function AddStudent(){
                     name="password"
                     onChange={handleChanges}
                     type="text"
+                    required
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                   </div>
                 </div>
@@ -179,6 +184,7 @@ export default function AddStudent(){
                       name="organization_name"
                       onChange={handleChanges}
                       type="text"
+                      required
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                   </div>
                 </div>
@@ -193,6 +199,7 @@ export default function AddStudent(){
                       name="organization_mentor_name"
                       onChange={handleChanges}
                       type="text"
+                      required
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                   </div>
                 </div>
@@ -201,12 +208,13 @@ export default function AddStudent(){
                   <div className="  w-full mb-3">
                     <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                      email address
+                      Email address
                     </label>
                     <input
                       name="organization_mentor_email"
                       onChange={handleChanges}
                       type="email"
+                      required
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-black rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
                   </div>
                 </div>
