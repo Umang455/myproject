@@ -8,7 +8,6 @@ export default function AStudentProfile() {
   const token = JSON.parse(sessionStorage.getItem("token"))
   const studentName = sessionStorage.getItem("studentInfo")
   const navigate = useNavigate()
-  console.log(studentName);
 
   useEffect(() => {
     axios

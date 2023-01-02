@@ -33,7 +33,6 @@ export default function TStudentProfile() {
       if(res.data.documents) {
           setContent(res.data.student)
           setFiles(res.data.documents)
-          console.log(content);
       }
       else {
           setContent(res.data.student)
