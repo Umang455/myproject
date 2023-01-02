@@ -37,12 +37,25 @@ export default function StudentDocuments() {
       })
       .then((result)=>{
           alert(result.data.message)
-          console.log(result)
       })
       .catch((err)=>{
           alert(err.data.message||"Something went wrong")
       })
     }
+
+    const handleDownload = (e) => {
+
+      const element = document.createElement("a");
+      const file = new Blob(
+          [e.target.value],
+          {type: 'application/pdf'}
+      );
+      element.href = URL.createObjectURL(file);
+      element.download = e.target.value;
+      document.body.appendChild(element);
+      element.click();
+    }
+  
     return (
       <section className="bg-gradient-to-r from-indigo-300 to-red-200 md:text-gray-300 h-[77.4rem] md:h-[55rem] md:pt-10 md:pb-10">
         <div className="section flex justify-center md:my-[10rem]" >
@@ -65,9 +78,9 @@ export default function StudentDocuments() {
                                 <span className="ml-2 w-0 flex-1 truncate">{file.name}</span>
                             </div>
                             <div className="ml-4 flex-shrink-0">
-                              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                            <button onClick={handleDownload} value={file.name} className="font-medium text-indigo-600 hover:text-indigo-500">
                                 Download
-                              </a>
+                              </button>
                             </div>
                             <div className="ml-4 flex-shrink-0">
                               <a href={file.url} target="_blank" className="font-medium text-indigo-600 hover:text-indigo-500">

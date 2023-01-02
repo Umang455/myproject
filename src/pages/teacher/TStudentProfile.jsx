@@ -42,8 +42,35 @@ export default function TStudentProfile() {
   if(!content) return null
   if(!files) return null
 
-//   console.log(content);
-//   console.log(files);
+  const handleDelete = (fileId) => {
+    const input = {
+      fileId: fileId
+    }
+    axios.post("https://inplantportal.onrender.com/student/file/delete", input, {
+      headers: {
+        Authorization: token
+      }
+    })
+    .then((result)=>{
+        alert(result.data.message)
+    })
+    .catch((err)=>{
+        alert(err.data.message||"Something went wrong")
+    })
+  }
+
+  const handleDownload = (e) => {
+
+    const element = document.createElement("a");
+    const file = new Blob(
+        [e.target.value],
+        {type: 'application/pdf'}
+    );
+    element.href = URL.createObjectURL(file);
+    element.download = e.target.value;
+    document.body.appendChild(element);
+    element.click();
+}
 
   return(
   <>
@@ -225,9 +252,9 @@ export default function TStudentProfile() {
                                 <span className="ml-2 w-0 flex-1 truncate text-gray-50">{file.name}</span>
                             </div>
                             <div className="ml-4 flex-shrink-0">
-                              <a href="#" className="font-medium text-gray-50 hover:text-indigo-500">
+                              <button onClick={handleDownload} id="downloadbtn" value={file.name} className="font-medium text-gray-50 hover:text-indigo-500">
                                 Download
-                              </a>
+                              </button>
                             </div>
                             <div className="ml-4 flex-shrink-0">
                               <a href={file.url} target="_blank" className="font-medium text-gray-50  hover:text-indigo-500">
@@ -237,7 +264,7 @@ export default function TStudentProfile() {
                             <div className="ml-4 flex-shrink-0">
                               <button onClick={() => {
                                 handleDelete(file.fileId)
-                              }} className="font-medium text-gray-50  hover:text-indigo-500">
+                              }} className="font-medium text-indigo-600 hover:text-indigo-500">
                                 Delete
                               </button>
                             </div>

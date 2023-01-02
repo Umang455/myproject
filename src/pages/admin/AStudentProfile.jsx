@@ -42,8 +42,18 @@ export default function AStudentProfile() {
   if(!content) return null
   if(!files) return null
 
-//   console.log(content);
-//   console.log(files);
+  const handleDownload = (e) => {
+
+    const element = document.createElement("a");
+    const file = new Blob(
+        [e.target.value],
+        {type: 'application/pdf'}
+    );
+    element.href = URL.createObjectURL(file);
+    element.download = e.target.value;
+    document.body.appendChild(element);
+    element.click();
+}
 
   return(
   <>
@@ -225,21 +235,14 @@ export default function AStudentProfile() {
                                 <span className="ml-2 w-0 flex-1 truncate text-gray-50">{file.name}</span>
                             </div>
                             <div className="ml-4 flex-shrink-0">
-                              <a href="#" className="font-medium text-gray-50 hover:text-indigo-500">
+                              <button onClick={handleDownload} id="downloadbtn" value={file.name} className="font-medium text-gray-50 hover:text-indigo-500">
                                 Download
-                              </a>
+                              </button>
                             </div>
                             <div className="ml-4 flex-shrink-0">
                               <a href={file.url} target="_blank" className="font-medium text-gray-50  hover:text-indigo-500">
                                 View
                               </a>
-                            </div>
-                            <div className="ml-4 flex-shrink-0">
-                              <button onClick={() => {
-                                handleDelete(file.fileId)
-                              }} className="font-medium text-gray-50  hover:text-indigo-500">
-                                Delete
-                              </button>
                             </div>
                           </li>
                         ))
