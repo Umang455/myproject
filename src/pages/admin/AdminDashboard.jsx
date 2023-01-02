@@ -52,7 +52,7 @@ export default function AdminDashboard() {
                   </label>
                   <p
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-red-200 rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                    {content.username}
+                    {content.username || ""}
                   </p>
                 </div>
               </div>
@@ -65,7 +65,7 @@ export default function AdminDashboard() {
                   </label>
                   <p
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-red-200 rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                    {content.name}
+                    {content.name || ""}
                   </p>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export default function AdminDashboard() {
                   </label>
                   <p
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-red-200 rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                    {content.email}
+                    {content.email || ""}
                   </p>
                 </div>
               </div>
@@ -91,7 +91,7 @@ export default function AdminDashboard() {
                   </label>
                   <p
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 rounded text-sm md:text-red-200  focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                    {content.mobile_no}
+                    {content.mobile_no || ""}
                   </p>
                 </div>
               </div>
