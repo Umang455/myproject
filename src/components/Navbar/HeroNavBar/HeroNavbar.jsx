@@ -17,14 +17,14 @@ export default function HeroNavbar() {
         </div>
         <ul className="md:flex hidden uppercase items-center gap-8 font-[Poppins]">
         <NavLink end to="/" style={({isActive}) => ({
-          backgroundColor: isActive ? '#59436c' : '#111827',
+          backgroundColor: isActive ? '#59436c' : '#111827'
           })}>
-          <li className='hover:bg-[#59436c] block w-32 py-2 rounded-4 font-medium text-center'>
+          <li className='hover:bg-[#59436c] block w-32 py-2 rounded-md font-medium text-center'>
             HOME
           </li>
         </NavLink>
         <NavLink end to="/about" style={({isActive}) => ({
-          backgroundColor: isActive ? '#59436c' : '#111827',
+          backgroundColor: isActive ? '#59436c' : '#111827'
           })}>
           <li className='hover:bg-[#59436c]  block w-32 py-2 rounded-md font-medium text-center'>
             ABOUT
@@ -49,7 +49,7 @@ export default function HeroNavbar() {
           </li>
         </ul>
         {/* <div className=""> */}
-          <NavLink to="/login" className="md:block hidden bg-primary px-6 py-2 rounded-lg hover:bg-purple-700 hover:text-black border-2 border-purple-700">
+          <NavLink to="/login" className="md:block hidden bg-primary px-6 py-2 rounded-lg hover:bg-purple-800 hover:text-black border-2 border-purple-800">
             <button className="">
               Log In
             </button>
