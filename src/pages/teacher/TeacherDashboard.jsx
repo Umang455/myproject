@@ -8,20 +8,18 @@ export default function TeacherDashboard() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    return () => {
-      axios
-      .get("https://inplantportal.onrender.com/teacher", {
-        headers: {
-          Authorization: "Bearer " + token
-        }
-      })
-      .then((res) => {
-        setContent(JSON.parse(sessionStorage.getItem("info")))
-      })
-      .catch((err) => {
-        navigate("/login");
-      })
-    }
+    axios
+    .get("https://inplantportal.onrender.com/teacher", {
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    })
+    .then((res) => {
+      setContent(JSON.parse(sessionStorage.getItem("info")))
+    })
+    .catch((err) => {
+      navigate("/login");
+    })
   }, [])
 
   return(
