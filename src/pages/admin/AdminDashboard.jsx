@@ -1,20 +1,32 @@
-import React, { useEffect } from "react";
-import { useState, useContext } from "react";
-import { Token } from "../../context";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function AdminDashboard() {
   const [content, setContent] = useState({})
-  const [token, setToken] = useContext(Token)
+  const token = JSON.parse(sessionStorage.getItem("token"))
+  const navigate = useNavigate()
 
   useEffect(() => {
     return () => {
-      setContent(JSON.parse(sessionStorage.getItem("info")))
+      axios
+      .get("http://localhost:9000/admin", {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      })
+      .then((res) => {
+        setContent(JSON.parse(sessionStorage.getItem("info")))
+      })
+      .catch((err) => {
+        navigate("/login");
+      })
     }
   }, [])
-  console.log(content);
+
   return(
   <>
-  <section className="bg-gradient-to-r from-indigo-300 to-red-200 md:text-gray-300 h-[77.4rem] md:h-[55rem] md:pt-10 md:pb-10">
+  <section className="bg-gradient-to-r from-indigo-300 to-red-200 md:text-gray-300 h-[77.4rem] md:h-[55.5rem] md:pt-10 md:pb-10">
     <div className=" md:mx-[8rem] md:bg-gray-900">
       <div className="flex flex-col min-w-0 break-words w-full mb-6  -lg rounded-lg bg-blueGray-100 border-0">
         <div className="rounded-t bg-transparent md:text-white md:bg-gray-900 mb-0 px-6 py-6">
@@ -79,119 +91,6 @@ export default function AdminDashboard() {
                   <p
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 rounded text-sm md:text-red-200  focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                     {content.mobile_no}
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <hr className="mt-6 border-b-1 border-black md:border-white" />
-            
-            <h6 className="text-blueGray-400 md:text-white text-sm mt-3 mb-6 font-bold uppercase">
-              Faculty Mentor Information
-            </h6>
-            
-            <div className="flex flex-wrap">
-              <div className="w-full lg:w-8/12 px-4">
-                <div className="  w-full mb-3">
-                  <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                    Faculty Mentor Name
-                  </label>
-                  <p 
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-red-200 rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150" 
-                  defaultValue="lucky.jesse">
-                    Himanshu
-                  </p>
-                </div>
-              </div>
-              
-              <div className="w-full lg:w-6/12 px-4">
-                <div className="w-full mb-3">
-                  <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                    Email Address
-                  </label>
-                  <p
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-red-200 rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  defaultValue="Lucky">
-                    lavda
-                  </p>
-                </div>
-              </div>
-              
-              <div className="w-full lg:w-6/12 px-4">
-                <div className="w-full mb-3">
-                  <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                    Mobile Number
-                  </label>
-                  <p
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600  rounded text-sm md:text-red-200  focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  defaultValue="Lucky">
-                    lavda
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <hr className="mt-6 border-b-1 border-black md:border-white border-blueGray-300" />
-            
-            <h6 className="text-blueGray-400 md:text-white text-sm mt-3 mb-6 font-bold uppercase">
-              Industry Mentor Information
-            </h6>
-            
-            <div className="flex flex-wrap ">
-              <div className="w-full lg:w-6/12 px-4">
-                <div className="  w-full mb-3">
-                  <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                    Organisation Name
-                  </label>
-                  <p
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-red-200 rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  defaultValue="lucky.jesse">
-                    Himanshu
-                  </p>
-                </div>
-              </div>
-              
-              <div className="w-full lg:w-6/12 px-4">
-                <div className="  w-full mb-3">
-                  <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                    Industry mentor name
-                  </label>
-                  <p
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-red-200 rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                    lavda
-                  </p>
-                </div>
-              </div>
-              
-              <div className="w-full lg:w-6/12 px-4">
-                <div className="  w-full mb-3">
-                  <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                    email address
-                  </label>
-                  <p
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-red-200 rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  defaultValue="Lucky">
-                    lavda
-                  </p>
-                </div>
-              </div>
-              
-              <div className="w-full lg:w-6/12 px-4">
-                <div className="  w-full mb-3">
-                  <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                    Mobile Number
-                  </label>
-                  <p
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 md:text-red-200 rounded text-sm   focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  defaultValue="Lucky">
-                    lavda
                   </p>
                 </div>
               </div>
