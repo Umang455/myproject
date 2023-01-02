@@ -13,8 +13,6 @@ export default function Login() {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  console.log(user);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
