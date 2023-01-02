@@ -29,7 +29,7 @@ export default function AdminDashboard() {
     }
   }, [])
 
-  return(
+  return( content && (
   <>
   <section className="bg-gradient-to-r from-indigo-300 to-red-200 md:text-gray-300 h-[77.4rem] md:h-[55.5rem] md:pt-10 md:pb-10">
     <div className=" md:mx-[8rem] md:bg-gray-900">
@@ -106,5 +106,6 @@ export default function AdminDashboard() {
     </div>
   </section>
   </>
+  )
   );
 }
