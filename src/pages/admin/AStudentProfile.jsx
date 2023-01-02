@@ -11,36 +11,34 @@ export default function AStudentProfile() {
   console.log(studentName);
 
   useEffect(() => {
-    return () => {
-      axios
-      .get("https://inplantportal.onrender.com/admin", {
-        headers: {
-          Authorization: "Bearer " + token
-        }
-      })
-      .then((res) => {
-        console.log(res.data.message);
-      })
-      .catch((err) => {
-        navigate("/login");
-      })
+    axios
+    .get("https://inplantportal.onrender.com/admin", {
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    })
+    .then((res) => {
+      console.log(res.data.message);
+    })
+    .catch((err) => {
+      navigate("/login");
+    })
 
-      axios
-      .get(`https://inplantportal.onrender.com/admin/student-info/${studentName}`, {
-        headers: {
-            Authorization: "Bearer " + token
-        }
-      })
-      .then((res) => {
-        if(res.data.documents) {
-            setContent(res.data.student)
-            setFiles(res.data.documents)
-        }
-        else {
-            setContent(res.data.student)
-        }
-      })
-    }
+    axios
+    .get(`https://inplantportal.onrender.com/admin/student-info/${studentName}`, {
+      headers: {
+          Authorization: "Bearer " + token
+      }
+    })
+    .then((res) => {
+      if(res.data.documents) {
+          setContent(res.data.student)
+          setFiles(res.data.documents)
+      }
+      else {
+          setContent(res.data.student)
+      }
+    })
   }, [])
   if(!content) return null
   if(!files) return null
