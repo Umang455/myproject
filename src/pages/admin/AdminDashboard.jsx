@@ -16,7 +16,7 @@ export default function AdminDashboard() {
         }
       })
       .then((res) => {
-        if(sessionStorage.getItem != "") {
+        if(sessionStorage.getItem("info") != "") {
           setContent(JSON.parse(sessionStorage.getItem("info")))
 
 
