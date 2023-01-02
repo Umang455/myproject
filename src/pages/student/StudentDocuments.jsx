@@ -30,9 +30,9 @@ export default function StudentDocuments() {
       const input = {
         fileId: fileId
       }
-      axios.post("https://backend-production-3031.up.railway.app/student/file/delete", input, {
+      axios.post("http://localhost:9000/student/file/delete", input, {
         headers: {
-          Authorization: token
+          Authorization: "Bearer " + token
         }
       })
       .then((result)=>{
