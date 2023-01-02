@@ -30,13 +30,14 @@ export default function StudentDocuments() {
       const input = {
         fileId: fileId
       }
-      axios.post("http://backend-production-3031.up.railway.app/student/file/delete", input, {
+      axios.post("https://backend-production-3031.up.railway.app/student/file/delete", input, {
         headers: {
           Authorization: "Bearer " + token
         }
       })
       .then((result)=>{
           alert(result.data.message)
+          window.location.reload()
       })
       .catch((err)=>{
           alert(err.data.message||"Something went wrong")
