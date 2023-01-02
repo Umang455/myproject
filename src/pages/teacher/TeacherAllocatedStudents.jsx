@@ -9,7 +9,7 @@ export default function AllocateMentor(){
   const navigate = useNavigate()
   
   useEffect(()=>{
-    axios.get('http://localhost:9000/teacher/allocated-students', {
+    axios.get('https://inplantportal.onrender.com/teacher/allocated-students', {
       headers: {
         Authorization: "Bearer " + token
       }
@@ -47,7 +47,7 @@ export default function AllocateMentor(){
       studentName: studentName
     }
     axios
-    .post("http://localhost:9000/teacher/send-email", input, {
+    .post("https://inplantportal.onrender.com/teacher/send-email", input, {
       headers: {
         Authorization: "Bearer " + token
       }
@@ -63,7 +63,7 @@ export default function AllocateMentor(){
 
   const handleBulkMail = (e) => {
     axios
-    .post("http://localhost:9000/teacher/send-bulk-email", bulkInputs, {
+    .post("https://inplantportal.onrender.com/teacher/send-bulk-email", bulkInputs, {
       headers: {
         Authorization: "Bearer " + token
       }

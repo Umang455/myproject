@@ -10,7 +10,7 @@ export default function StudentDashboard() {
   useEffect(() => {
     return () => {
       axios
-      .get("http://localhost:9000/student", {
+      .get("https://inplantportal.onrender.com/student", {
         headers: {
           Authorization: "Bearer " + token
         }

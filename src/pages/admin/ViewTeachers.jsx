@@ -12,7 +12,7 @@ export default function ViewTeachers(){
 
   useEffect(()=>{
     axios
-    .get('http://localhost:9000/admin/teachers/list', {
+    .get('https://inplantportal.onrender.com/admin/teachers/list', {
       headers: {
         Authorization: "Bearer " + token
       }

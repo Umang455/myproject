@@ -10,7 +10,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     return () => {
       axios
-      .get("http://localhost:9000/admin", {
+      .get("https://inplantportal.onrender.com/admin", {
         headers: {
           Authorization: "Bearer " + token
         }

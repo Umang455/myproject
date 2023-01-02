@@ -10,7 +10,7 @@ export default function AdminChangePassword(){
     useEffect(() => {
         return () => {
           axios
-          .get("http://localhost:9000/admin", {
+          .get("https://inplantportal.onrender.com/admin", {
             headers: {
               Authorization: "Bearer " + token
             }
@@ -33,7 +33,7 @@ export default function AdminChangePassword(){
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post(`http://localhost:9000/admin/update/password`, inputs, {
+            .post(`https://inplantportal.onrender.com/admin/update/password`, inputs, {
                 headers: {
                     Authorization: "Bearer " + token
                 }
