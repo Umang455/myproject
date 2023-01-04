@@ -32,7 +32,11 @@ export default function IndustryForm() {
         const name = window.location.href.split('?')[1];
         const studentName = name.split('=')[1];
         e.preventDefault();
-        axios
+        if(inputs.month == "default") {
+            alert("Please select a month")
+        }
+        else{
+            axios
             .post(`https://backend-production-3031.up.railway.app/teacher/upload-industry-marks/${studentName}`, inputs)
             .then((res) => {
                 alert(res.data.message);
@@ -41,6 +45,7 @@ export default function IndustryForm() {
                 console.log('error : ', err);
                 alert(err.response.data.message);
             });
+        }
     }
 
 
@@ -64,7 +69,7 @@ export default function IndustryForm() {
                 viewBox="0 0 20 20">
                     <path d="M16 2h4v15a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0h16v2zm0 2v13a1 1 0 0 0 1 1 1 1 0 0 0 1-1V4h-2zM2 2v15a1 1 0 0 0 1 1h11.17a2.98 2.98 0 0 1-.17-1V2H2zm2 8h8v2H4v-2zm0 4h8v2H4v-2zM4 4h8v4H4V4z" />
                 </svg>
-                    Industry Mentor review
+                    Faculty Mentor review
                 </p>
             </div>
         </div>
@@ -88,8 +93,8 @@ export default function IndustryForm() {
             <form onSubmit={handleSubmit}>
                 <div className="p-2 mt-1 lg:mt-0 rounded shadow bg-white">
                     <div>
-                        <select required name="month" onChange={handleChanges} className="text-xl text-gray-800 px-2 py-2 rounded-lg w-small  focus:bg-gray-100 border border-gray-200 focus:outline-none ">
-                            <option defaultValue >--Select Month--</option>
+                        <select name="month" onChange={handleChanges} className="text-xl text-gray-800 px-2 py-2 rounded-lg w-small  focus:bg-gray-100 border border-gray-200 focus:outline-none ">
+                            <option value="default" >--Select Month--</option>
                             <option value="January">January</option>
                             <option value="February">February</option>
                             <option value="March">March</option>

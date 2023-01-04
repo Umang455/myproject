@@ -33,7 +33,11 @@ export default function FacultyForm() {
         const name = window.location.href.split('?')[1];
         const studentName = name.split('=')[1];
         e.preventDefault();
-        axios
+        if(inputs.month == "default") {
+            alert("Please select a month")
+        }
+        else{
+            axios
             .post(`https://backend-production-3031.up.railway.app/teacher/upload-faculty-marks/${studentName}`, inputs, {
                 headers: {
                     Authorization: "Bearer " + token
@@ -46,6 +50,7 @@ export default function FacultyForm() {
                 console.log('error : ', err);
                 alert(err.response.data.message);
             });
+        }
     }
 
 
@@ -93,8 +98,8 @@ export default function FacultyForm() {
             <form onSubmit={handleSubmit}>
                 <div className="p-2 mt-1 lg:mt-0 rounded shadow bg-white">
                     <div>
-                        <select required name="month" onChange={handleChanges} className="text-xl text-gray-800 px-2 py-2 rounded-lg w-small  focus:bg-gray-100 border border-gray-200 focus:outline-none ">
-                            <option defaultValue >--Select Month--</option>
+                        <select name="month" onChange={handleChanges} className="text-xl text-gray-800 px-2 py-2 rounded-lg w-small  focus:bg-gray-100 border border-gray-200 focus:outline-none ">
+                            <option value="default" >--Select Month--</option>
                             <option value="January">January</option>
                             <option value="February">February</option>
                             <option value="March">March</option>
