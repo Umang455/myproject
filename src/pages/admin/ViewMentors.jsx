@@ -63,14 +63,14 @@ export default function ViewMentors(){
     <>
     <section className="bg-gradient-to-r from-indigo-300 to-red-200 md:h-[55.5rem] md:px-[10rem] md:py-[4rem] md:w-auto">
       <div className="text-sm flex justify-center ">
-        <select id="teacherUserName" onChange={(e) => {
+        <select onChange={(e) => {
           setTeacherName(e.target.value)
         }} className="text-sm text-gray-800 px-4 py-3 rounded bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400">
           <option>Select Teacher</option>
           {
             teacher.map((element)=>{
               return(
-                <option value={element.username}>{element.name}</option>
+                <option value={element.name}>{element.name}</option>
                 )
             })}
         </select>
