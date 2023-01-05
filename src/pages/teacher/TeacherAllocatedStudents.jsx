@@ -126,29 +126,42 @@ export default function AllocateMentor(){
             bulkInputs.push(element.name)
             return(
               <tr id="tr" 
-              onClick={() => {
-                sessionStorage.setItem("studentInfo", element.name)
-                navigate("/teacher/student-profile")
-                }}className="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
-                  <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+              className="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
+                  <td
+                  onClick={() => {
+                    sessionStorage.setItem("studentInfo", element.name)
+                    navigate("/teacher/student-profile")
+                    }} className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                     <span className="inline-block w-1/3 md:hidden font-bold">
                       Enrollment No
                     </span>
                     {element.enrollment_no}
                   </td>
-                  <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+                  <td
+                  onClick={() => {
+                    sessionStorage.setItem("studentInfo", element.name)
+                    navigate("/teacher/student-profile")
+                    }} className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                     <span className="inline-block w-1/3 md:hidden font-bold">
                       Name
                     </span>
                     {element.name}
                   </td>
-                  <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+                  <td
+                  onClick={() => {
+                    sessionStorage.setItem("studentInfo", element.name)
+                    navigate("/teacher/student-profile")
+                    }} className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                     <span className="inline-block w-1/3 md:hidden font-bold">
                       Email Id
                     </span>
                     {element.email}
                   </td>
-                  <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+                  <td
+                  onClick={() => {
+                    sessionStorage.setItem("studentInfo", element.name)
+                    navigate("/teacher/student-profile")
+                    }} className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                     <span className="inline-block w-1/3 md:hidden font-bold">
                       Mobile Number
                     </span>
@@ -158,7 +171,7 @@ export default function AllocateMentor(){
                     <span className="inline-block w-1/3 md:hidden font-bold">
                       Allocate
                     </span>
-                    <NavLink to={`/give-assessment/?name=${element.name}`} target="__blank">
+                    <NavLink to={`/give-assessment/?name=${element.name}`}>
                       <button className="bg-purple-800 border-purple-800 text-white hover:bg-white hover:text-purple-800 font-bold py-1 px-2 border rounded mr-2">
                         GIVE
                       </button>
