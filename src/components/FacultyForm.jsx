@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function FacultyForm() {
-    const [content, setContent] = useState([])
+    const [content, setContent] = useState({})
     const [inputs, setInputs] = useState({})
     const token = JSON.parse(sessionStorage.getItem("token"))
 
